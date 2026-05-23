@@ -31,8 +31,8 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 1.5s var(--transition-smooth), transform 1.5s var(--transition-smooth);
+            transform: translateY(20px);
+            transition: opacity 1.2s var(--transition-smooth), transform 1.2s var(--transition-smooth);
         }
 
         .reveal.active {
@@ -70,9 +70,9 @@
         .btn-primary {
             background-color: var(--rose);
             color: #FFFFFF;
-            padding: 14px 36px;
+            padding: 14px 32px;
             border-radius: 50px;
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             transition: all 0.5s ease;
@@ -80,7 +80,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
+            width: fit-content;
+        }
+
+        @media (min-width: 768px) {
+            .btn-primary {
+                padding: 14px 36px;
+                font-size: 12px;
+                gap: 12px;
+            }
         }
 
         .btn-primary:hover {
@@ -90,7 +99,11 @@
 
         .image-frame {
             position: relative;
-            padding: 12px;
+            padding: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .image-frame { padding: 12px; }
         }
 
         .image-frame::before {
@@ -130,12 +143,13 @@
             transition: opacity 0.6s ease-in-out;
         }
 
+        /* WhatsApp Flutuante Responsivo */
         .wa-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
             background-color: var(--rose);
             color: #FFF;
             border-radius: 50px;
@@ -147,6 +161,24 @@
             justify-content: center;
             transition: all 0.5s ease;
             animation: pulse-soft 3s infinite;
+        }
+
+        .wa-float svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .wa-float {
+                width: 60px;
+                height: 60px;
+                bottom: 30px;
+                right: 30px;
+            }
+            .wa-float svg {
+                width: 28px;
+                height: 28px;
+            }
         }
 
         .wa-float:hover {
@@ -162,7 +194,8 @@
             100% { box-shadow: 0 0 0 0 rgba(181, 124, 124, 0); }
         }
 
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 5px; }
+        @media (min-width: 768px) { ::-webkit-scrollbar { width: 6px; } }
         ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb { background: var(--rose-light); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--rose); }
@@ -171,10 +204,10 @@
 <body class="selection:bg-[#B57C7C] selection:text-white flex flex-col min-h-screen">
 
     <a href="https://wa.me/5511998926658" target="_blank" class="wa-float" aria-label="Falar no WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
     </a>
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-700 bg-transparent py-6">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-700 bg-transparent py-4 md:py-6">
         <div class="max-w-[85rem] mx-auto px-6 md:px-12 flex justify-between items-center">
             
             <div class="flex-1 lg:hidden"></div>
@@ -186,10 +219,10 @@
             </div>
 
             <div onclick="navigate('home')" class="flex flex-col items-center justify-center cursor-pointer flex-shrink-0 group">
-                <div class="serif text-3xl md:text-4xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors duration-500 tracking-wide">
+                <div class="serif text-2xl md:text-3xl lg:text-4xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors duration-500 tracking-wide">
                     Mariana Martins
                 </div>
-                <div class="text-[9px] tracking-[0.25em] text-[#B57C7C] uppercase mt-2 opacity-80">
+                <div class="text-[8px] md:text-[9px] tracking-[0.25em] text-[#B57C7C] uppercase mt-1 md:mt-2 opacity-80">
                     Psicanalista • CRP 06/70269
                 </div>
             </div>
@@ -201,49 +234,59 @@
             </div>
 
             <div class="flex-1 flex justify-end lg:hidden text-[#4A4443]">
-                <button onclick="toggleMenu()" class="p-2">
+                <button onclick="toggleMenu()" class="p-2 relative z-[110]" aria-label="Menu">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
             </div>
         </div>
+    </nav>
 
-        <div id="mobile-menu" class="fixed inset-0 bg-[#FAF8F7] z-40 flex flex-col items-center justify-center transition-all duration-500 opacity-0 invisible">
-            <button class="absolute top-8 right-6 p-2 text-[#4A4443]" onclick="toggleMenu()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <!-- Menu Curtains movido para FORA da navbar para não ser afetado pelo backdrop-blur -->
+    <div id="mobile-menu-wrapper" class="fixed inset-0 z-[100] pointer-events-none flex">
+        <!-- Cortina Esquerda -->
+        <div id="curtain-left" class="w-1/2 h-full bg-[#FAF8F7] transform -translate-x-full transition-transform duration-[800ms] ease-[cubic-bezier(0.77,0,0.175,1)]"></div>
+        <!-- Cortina Direita -->
+        <div id="curtain-right" class="w-1/2 h-full bg-[#FAF8F7] transform translate-x-full transition-transform duration-[800ms] ease-[cubic-bezier(0.77,0,0.175,1)]"></div>
+
+        <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+            <button class="absolute top-6 right-6 p-2 text-[#4A4443] opacity-0 transition-all duration-500 transform translate-y-4" onclick="toggleMenu()" id="close-btn" aria-label="Fechar">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
-            <div class="flex flex-col items-center gap-8 text-xl serif text-[#4A4443]">
-                <button onclick="navigate('home')" class="hover:text-[#B57C7C] transition-colors">Início</button>
-                <button onclick="navigate('como-ajudar')" class="hover:text-[#B57C7C] transition-colors">Como vou te ajudar</button>
-                <button onclick="navigate('muito-prazer')" class="hover:text-[#B57C7C] transition-colors">Muito prazer</button>
-                <button onclick="navigate('formacao')" class="hover:text-[#B57C7C] transition-colors">Formação & Experiência</button>
-                <button onclick="navigate('abordagem')" class="hover:text-[#B57C7C] transition-colors">Minha Abordagem</button>
-                <button onclick="navigate('artigos')" class="hover:text-[#B57C7C] transition-colors">Artigos</button>
-                <button onclick="navigate('contato')" class="mt-4 border-b border-[#B57C7C] text-[#B57C7C] pb-1">Agendar Consulta</button>
+            <div id="menu-links" class="flex flex-col items-center gap-6 md:gap-8 text-lg md:text-xl serif text-[#4A4443] opacity-0 transform translate-y-8 transition-all duration-700">
+                <button onclick="navigate('home')" class="hover:text-[#B57C7C] transition-colors py-2 px-4">Início</button>
+                <button onclick="navigate('como-ajudar')" class="hover:text-[#B57C7C] transition-colors py-2 px-4">Como vou te ajudar</button>
+                <button onclick="navigate('muito-prazer')" class="hover:text-[#B57C7C] transition-colors py-2 px-4">Muito prazer</button>
+                <button onclick="navigate('formacao')" class="hover:text-[#B57C7C] transition-colors py-2 px-4">Formação & Experiência</button>
+                <button onclick="navigate('abordagem')" class="hover:text-[#B57C7C] transition-colors py-2 px-4">Minha Abordagem</button>
+                <button onclick="navigate('artigos')" class="hover:text-[#B57C7C] transition-colors py-2 px-4">Artigos</button>
+                <button onclick="navigate('contato')" class="mt-4 border-b border-[#B57C7C] text-[#B57C7C] pb-1 py-2 px-4">Agendar Consulta</button>
             </div>
         </div>
-    </nav>
+    </div>
 
     <main class="flex-grow flex flex-col" id="main-wrapper">
         
+        <!-- ================= HOME ================= -->
         <div id="page-home" class="page-content block">
             
-            <section class="relative min-h-screen flex items-center pt-32 pb-20 px-6 md:px-12 max-w-[90rem] mx-auto overflow-hidden">
-                <div class="absolute top-1/4 right-[60%] w-[500px] h-[500px] bg-[#DFCDCD] rounded-full blur-[120px] opacity-30 z-0 pointer-events-none"></div>
+            <section class="relative min-h-screen flex items-center pt-28 pb-16 md:pt-32 md:pb-20 px-6 md:px-12 max-w-[90rem] mx-auto overflow-hidden">
+                <!-- Orbe de luz sutil -->
+                <div class="absolute top-1/4 right-[60%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-[#DFCDCD] rounded-full blur-[80px] md:blur-[120px] opacity-30 z-0 pointer-events-none"></div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-12 items-center w-full relative z-10">
-                    <div class="flex flex-col gap-10 order-2 lg:order-1 lg:col-span-6 xl:col-span-5 xl:col-start-2">
-                        <div class="reveal flex flex-col gap-5">
-                            <div class="flex items-center gap-4">
-                                <div class="w-8 h-[1px] bg-[#B57C7C]"></div>
-                                <span class="text-[9px] tracking-[0.3em] uppercase text-[#B57C7C]">Psicanálise & Escuta Contemporânea</span>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-center w-full relative z-10 mt-10 md:mt-0">
+                    <div class="flex flex-col gap-8 md:gap-10 order-2 lg:order-1 lg:col-span-6 xl:col-span-5 xl:col-start-2">
+                        <div class="reveal flex flex-col gap-4 md:gap-5">
+                            <div class="flex items-center gap-3 md:gap-4">
+                                <div class="w-6 md:w-8 h-[1px] bg-[#B57C7C]"></div>
+                                <span class="text-[8px] md:text-[9px] tracking-[0.3em] uppercase text-[#B57C7C]">Psicanálise & Escuta Contemporânea</span>
                             </div>
-                            <h1 class="serif text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.05] text-[#4A4443] tracking-tight">
+                            <h1 class="serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.05] text-[#4A4443] tracking-tight">
                                 O que está acontecendo?<br/>
                                 <span class="text-[#B57C7C] italic">Me conta...</span>
                             </h1>
                         </div>
                         <div class="reveal delay-100 pl-0 md:pl-12">
-                            <p class="text-lg md:text-xl font-light text-[#7A7271] max-w-md leading-relaxed border-l border-[#DFCDCD]/50 pl-6">
+                            <p class="text-base sm:text-lg md:text-xl font-light text-[#7A7271] max-w-md leading-relaxed border-l border-[#DFCDCD]/50 pl-4 md:pl-6">
                                 Há momentos em que o peso interno pede uma pausa. Ofereço uma escuta atenta, sem julgamentos, para que você possa desembalar suas angústias no seu próprio tempo, de onde estiver.
                             </p>
                         </div>
@@ -253,225 +296,222 @@
                             </button>
                         </div>
                     </div>
+                    
                     <div class="order-1 lg:order-2 flex justify-center lg:justify-end lg:col-span-6 xl:col-span-5 reveal delay-100 relative">
-                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-[radial-gradient(#B57C7C_1.5px,transparent_1.5px)] [background-size:12px_12px] z-[-1] opacity-30"></div>
-                        <div class="w-full max-w-[440px] aspect-[4/5] image-frame bg-[#FAF8F7]">
+                        <!-- Poá microscópico -->
+                        <div class="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-24 h-24 md:w-32 md:h-32 bg-[radial-gradient(#B57C7C_1.5px,transparent_1.5px)] [background-size:12px_12px] z-[-1] opacity-30"></div>
+                        <div class="w-full max-w-[260px] sm:max-w-[320px] md:max-w-[440px] aspect-[4/5] image-frame bg-[#FAF8F7]">
                             <img src="https://i.ibb.co/1Gbr5Wcz/m1.avif" alt="Ambiente acolhedor" class="shadow-sm" />
                         </div>
                     </div>
                 </div>
 
-                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1px] h-20 bg-gradient-to-b from-[#B57C7C]/40 to-transparent reveal delay-300"></div>
+                <!-- Linha vertical de conexão suave -->
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[1px] h-12 md:h-20 bg-gradient-to-b from-[#B57C7C]/40 to-transparent reveal delay-300"></div>
             </section>
 
-            <section class="py-32 px-6 bg-[#F0EAE8]/50 relative">
-                <div class="max-w-3xl mx-auto text-center flex flex-col gap-10 items-center reveal">
-                    <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C]">Um espaço seguro</span>
-                    <h2 class="serif text-4xl md:text-5xl leading-snug text-[#4A4443]">
+            <section class="py-20 md:py-32 px-6 bg-[#F0EAE8]/50 relative">
+                <div class="max-w-3xl mx-auto text-center flex flex-col gap-8 md:gap-10 items-center reveal">
+                    <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C]">Um espaço seguro</span>
+                    <h2 class="serif text-3xl md:text-5xl leading-snug text-[#4A4443]">
                         Antes de qualquer intervenção, existe o encontro humano. Minha clínica é um convite para que você possa existir na sua totalidade.
                     </h2>
                 </div>
             </section>
 
+            <!-- Divisor Editorial com Losango -->
             <div class="w-full flex justify-center bg-[#FAF8F7]">
                 <div class="w-full max-w-[85rem] mx-6 md:mx-12 h-px bg-gradient-to-r from-transparent via-[#DFCDCD]/70 to-transparent relative flex items-center justify-center">
                     <div class="w-1.5 h-1.5 border border-[#B57C7C]/40 rotate-45 bg-[#FAF8F7]"></div>
                 </div>
             </div>
 
-            <section class="py-32 px-6 max-w-[85rem] mx-auto relative">
+            <section class="py-20 md:py-32 px-6 max-w-[85rem] mx-auto relative">
+                <!-- Marca d'água sutil -->
                 <div class="absolute top-10 left-6 text-[15vw] serif text-[#DFCDCD] opacity-[0.1] leading-none pointer-events-none hidden lg:block">01</div>
                 
-                <div class="text-center mb-24 reveal relative z-10">
-                    <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-4">Sem atritos</span>
-                    <h2 class="serif text-4xl md:text-5xl text-[#4A4443]">O Início do Seu Percurso</h2>
-                    <p class="font-light text-[#7A7271] mt-6 max-w-xl mx-auto leading-relaxed">Dar o primeiro passo em direção a uma vida com mais contorno é um ato de coragem. Desenhei esse processo para ser o mais fluido e acolhedor possível.</p>
+                <div class="text-center mb-16 md:mb-24 reveal relative z-10">
+                    <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Sem atritos</span>
+                    <h2 class="serif text-3xl md:text-5xl text-[#4A4443]">O Início do Seu Percurso</h2>
+                    <p class="font-light text-sm md:text-base text-[#7A7271] mt-4 md:mt-6 max-w-xl mx-auto leading-relaxed">Dar o primeiro passo em direção a uma vida com mais contorno é um ato de coragem. Desenhei esse processo para ser o mais fluido e acolhedor possível.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 relative z-10">
-                    <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-[#DFCDCD]/80 to-transparent"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-12 relative z-10">
+                    <div class="hidden md:block absolute top-10 md:top-12 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-[#DFCDCD]/80 to-transparent"></div>
                     
-                    <div class="flex flex-col items-center text-center gap-6 reveal">
-                        <div class="w-24 h-24 rounded-full bg-[#FAF8F7] border border-[#DFCDCD] flex items-center justify-center serif text-3xl text-[#B57C7C] italic z-10">01</div>
-                        <h3 class="serif text-2xl text-[#4A4443]">O Primeiro Contato</h3>
+                    <div class="flex flex-col items-center text-center gap-4 md:gap-6 reveal">
+                        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#FAF8F7] border border-[#DFCDCD] flex items-center justify-center serif text-2xl md:text-3xl text-[#B57C7C] italic z-10">01</div>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">O Primeiro Contato</h3>
                         <p class="font-light text-[#7A7271] leading-relaxed text-sm">Você me envia uma mensagem. Conversamos brevemente para alinhar horários disponíveis, valores e tirar qualquer dúvida prática sobre os atendimentos.</p>
                     </div>
                     
-                    <div class="flex flex-col items-center text-center gap-6 reveal delay-100">
-                        <div class="w-24 h-24 rounded-full bg-[#FAF8F7] border border-[#DFCDCD] flex items-center justify-center serif text-3xl text-[#B57C7C] italic z-10">02</div>
-                        <h3 class="serif text-2xl text-[#4A4443]">A Sessão Inaugural</h3>
-                        <p class="font-light text-[#7A7271] leading-relaxed text-sm">Nosso primeiro encontro online. Um espaço sem amarras para você dizer o que dói e entendermos juntos se sou a profissional certa para conduzir a sua escuta.</p>
+                    <div class="flex flex-col items-center text-center gap-4 md:gap-6 reveal delay-100">
+                        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#FAF8F7] border border-[#DFCDCD] flex items-center justify-center serif text-2xl md:text-3xl text-[#B57C7C] italic z-10">02</div>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">A Sessão Inaugural</h3>
+                        <p class="font-light text-[#7A7271] leading-relaxed text-sm">Nosso primeiro encontro. Um espaço sem amarras para você dizer o que dói e entendermos juntos se sou a profissional certa para conduzir a sua escuta.</p>
                     </div>
 
-                    <div class="flex flex-col items-center text-center gap-6 reveal delay-200">
-                        <div class="w-24 h-24 rounded-full bg-[#FAF8F7] border border-[#DFCDCD] flex items-center justify-center serif text-3xl text-[#B57C7C] italic z-10">03</div>
-                        <h3 class="serif text-2xl text-[#4A4443]">O Trabalho Clínico</h3>
-                        <p class="font-light text-[#7A7271] leading-relaxed text-sm">Se fizer sentido para você, iniciamos nossas sessões semanais. Um processo profundo e contínuo de elaboração, conforto emocional e autoconhecimento.</p>
+                    <div class="flex flex-col items-center text-center gap-4 md:gap-6 reveal delay-200">
+                        <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#FAF8F7] border border-[#DFCDCD] flex items-center justify-center serif text-2xl md:text-3xl text-[#B57C7C] italic z-10">03</div>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">O Trabalho Clínico</h3>
+                        <p class="font-light text-[#7A7271] leading-relaxed text-sm">Se fizer sentido para você, iniciamos nossas sessões semanais. Um processo profundo e contínuo de elaboração, conforto e autoconhecimento.</p>
                     </div>
                 </div>
-                <div class="text-center mt-20 reveal delay-300">
-                    <button onclick="window.open('https://wa.me/5511998926658', '_blank')" class="text-[#B57C7C] border-b border-[#B57C7C] pb-1 text-[11px] tracking-[0.2em] uppercase hover:text-[#4A4443] hover:border-[#4A4443] transition-colors">
+                <div class="text-center mt-16 md:mt-20 reveal delay-300">
+                    <button onclick="window.open('https://wa.me/5511998926658', '_blank')" class="text-[#B57C7C] border-b border-[#B57C7C] pb-1 text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-[#4A4443] hover:border-[#4A4443] transition-colors">
                         Falar no WhatsApp
                     </button>
                 </div>
             </section>
 
+            <!-- Divisor Editorial com Losango -->
             <div class="w-full flex justify-center bg-[#FAF8F7]">
                 <div class="w-full max-w-[85rem] mx-6 md:mx-12 h-px bg-gradient-to-r from-transparent via-[#DFCDCD]/70 to-transparent relative flex items-center justify-center">
                     <div class="w-1.5 h-1.5 border border-[#B57C7C]/40 rotate-45 bg-[#FAF8F7]"></div>
                 </div>
             </div>
 
-            <section class="py-32 px-6 md:px-12 max-w-[85rem] mx-auto relative overflow-hidden">
-                <div class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-[#DFCDCD] rounded-full blur-[120px] opacity-20 z-0 pointer-events-none"></div>
+            <section class="py-20 md:py-32 px-6 md:px-12 max-w-[85rem] mx-auto relative overflow-hidden">
+                <!-- Orbe difuso à esquerda -->
+                <div class="absolute top-[10%] left-[-10%] w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-[#DFCDCD] rounded-full blur-[80px] md:blur-[100px] opacity-20 z-0 pointer-events-none"></div>
 
-                <div class="text-center mb-24 reveal relative z-10">
-                    <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-4">Teoria · Abordagem · Modelo Clínico</span>
-                    <h2 class="serif text-4xl md:text-5xl text-[#4A4443]">A teoria a serviço do acolhimento</h2>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
-                    <div class="lg:col-span-5 reveal delay-100 flex flex-col gap-6">
-                        <p class="text-2xl md:text-3xl serif text-[#4A4443] leading-snug italic">
-                            "A psicanálise é o método de investigação e tratamento que utilizo nos meus atendimentos."
-                        </p>
-                        <div class="image-frame w-full aspect-[4/3] bg-[#FAF8F7] mt-4">
-                            <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=1000&auto=format&fit=crop" alt="Textura de luz suave" class="shadow-sm opacity-90 object-cover" />
-                        </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center relative z-10">
+                    <div class="aspect-square max-w-[280px] md:max-w-md mx-auto w-full reveal image-frame">
+                        <img src="https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=1000&auto=format&fit=crop" alt="Textura de luz suave" />
                     </div>
-                    
-                    <div class="lg:col-span-6 lg:col-start-7 flex flex-col gap-6 font-light text-lg text-[#7A7271] leading-relaxed reveal delay-200">
-                        <p>A psicoterapia online é uma abordagem terapêutica que visa, através da fala, tocar resistências e promover autoconhecimento. O modelo que estrutura minha escuta é a <strong>psicanálise contemporânea</strong>.</p>
-                        
-                        <p>Minha base clínica tem forte influência lacaniana, enraizada nos estudos de Freud e Jacques Lacan, e atravessada pela ética de instituições referenciais como a Escola Brasileira de Psicanálise (EBP), o CLIPP e o Instituto Sedes.</p>
-
-                        <p>Entretanto, <strong>a teoria acadêmica recua assim que a sessão começa</strong>. O foco não é intelectualizar a sua dor com linguagem fria ou técnica, mas oferecer sensação genuína de acolhimento, escuta atenta e segurança emocional.</p>
-
-                        <p>O trabalho investiga o sofrimento para promover a responsabilização subjetiva. Em alguns contextos, quando o momento exige, integro complementações de abordagens práticas (como DBT/TCC) para um suporte imediato adequado. O centro de tudo é você, não a teoria.</p>
-                        
-                        <button onclick="navigate('abordagem')" class="text-[#B57C7C] border-b border-[#B57C7C] pb-1 self-start text-[11px] tracking-[0.2em] uppercase hover:text-[#4A4443] hover:border-[#4A4443] transition-colors mt-4">
-                            Compreender o modelo
+                    <div class="flex flex-col gap-6 md:gap-8 reveal delay-100">
+                        <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C]">Escuta Clínica</span>
+                        <h2 class="serif text-3xl md:text-5xl text-[#4A4443]">Ouvir além da superfície</h2>
+                        <p class="font-light text-base md:text-lg leading-relaxed text-[#7A7271]">
+                            O sofrimento psíquico costuma ser um mensageiro cifrado. Nossa escuta não busca apenas calar o sintoma, mas traduzi-lo. É um processo delicado onde a sua própria palavra ganha força, permitindo que dores repetitivas percam o domínio sobre suas escolhas e sua rotina.
+                        </p>
+                        <button onclick="navigate('abordagem')" class="text-[#B57C7C] border-b border-[#B57C7C] pb-1 self-start text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-[#4A4443] hover:border-[#4A4443] transition-colors mt-2 md:mt-4">
+                            Entenda o modelo
                         </button>
                     </div>
                 </div>
             </section>
 
-            <section class="py-32 px-6 bg-[#B57C7C] text-[#FAF8F7] relative">
+            <section class="py-20 md:py-32 px-6 bg-[#B57C7C] text-[#FAF8F7] relative">
+                <!-- Detalhe decorativo vertical claro -->
                 <div class="absolute top-0 bottom-0 left-[10%] w-px bg-white/10 hidden md:block"></div>
 
-                <div class="max-w-[85rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-                    <div class="flex flex-col gap-8 reveal">
-                        <span class="text-[10px] tracking-[0.3em] uppercase text-[#FAF8F7]/70">O Divã Contemporâneo</span>
-                        <h2 class="serif text-4xl md:text-5xl leading-tight">100% Digital.<br>Intimidade Preservada.</h2>
-                        <p class="font-light text-lg leading-relaxed text-[#FAF8F7]/90">
+                <div class="max-w-[85rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
+                    <div class="flex flex-col gap-6 md:gap-8 reveal">
+                        <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#FAF8F7]/70">O Divã Contemporâneo</span>
+                        <h2 class="serif text-3xl md:text-5xl leading-tight">100% Digital.<br>Intimidade Preservada.</h2>
+                        <p class="font-light text-base md:text-lg leading-relaxed text-[#FAF8F7]/90">
                             A clínica psicanalítica não é feita de paredes físicas, mas da qualidade inegociável da escuta. Meu formato de atendimento é exclusivamente online, o que permite que você acesse seu espaço de cuidado de qualquer lugar do Brasil ou do exterior.
                         </p>
-                        <p class="font-light text-lg leading-relaxed text-[#FAF8F7]/90">
+                        <p class="font-light text-base md:text-lg leading-relaxed text-[#FAF8F7]/90">
                             O rigor ético, a profundidade do tratamento e a segurança emocional permanecem idênticos, adicionados à flexibilidade e ao conforto de estar no seu próprio refúgio seguro durante as sessões.
                         </p>
                     </div>
                     <div class="flex justify-center lg:justify-end reveal delay-100">
-                        <div class="w-full max-w-[380px] aspect-square p-3 bg-[#FAF8F7]/10 rounded-sm relative">
-                            <div class="absolute -top-4 -right-4 w-24 h-24 bg-[radial-gradient(#FAF8F7_1.5px,transparent_1.5px)] [background-size:10px_10px] z-0 opacity-20"></div>
+                        <div class="w-full max-w-[280px] md:max-w-[380px] aspect-square p-3 bg-[#FAF8F7]/10 rounded-sm relative">
+                            <!-- Poá microscópico claro -->
+                            <div class="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-20 h-20 md:w-24 md:h-24 bg-[radial-gradient(#FAF8F7_1.5px,transparent_1.5px)] [background-size:10px_10px] z-0 opacity-20"></div>
                             <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1000&auto=format&fit=crop" alt="Ambiente minimalista" class="w-full h-full object-cover rounded-sm relative z-10" />
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="py-32 px-6 max-w-[85rem] mx-auto bg-grid-pattern relative">
-                <div class="text-center mb-24 reveal relative z-10">
-                    <h2 class="serif text-4xl md:text-5xl text-[#4A4443]">Alicerces do Atendimento</h2>
+            <!-- Seção com Background Grid Pattern -->
+            <section class="py-20 md:py-32 px-6 max-w-[85rem] mx-auto bg-grid-pattern relative">
+                <div class="text-center mb-16 md:mb-24 reveal relative z-10">
+                    <h2 class="serif text-3xl md:text-5xl text-[#4A4443]">Alicerces do Atendimento</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20 relative z-10 bg-[#FAF8F7]/80 backdrop-blur-sm p-8 rounded-lg shadow-[0_0_40px_rgba(223,205,205,0.2)]">
-                    <div class="flex flex-col gap-5 reveal">
-                        <div class="flex items-center gap-3 mb-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 md:gap-x-16 gap-y-12 md:gap-y-20 relative z-10 bg-[#FAF8F7]/80 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-[0_0_40px_rgba(223,205,205,0.2)]">
+                    <div class="flex flex-col gap-4 md:gap-5 reveal">
+                        <div class="flex items-center gap-3 mb-1 md:mb-2">
                             <div class="w-1.5 h-1.5 bg-[#B57C7C] rotate-45"></div>
                             <div class="flex-1 h-px bg-gradient-to-r from-[#B57C7C]/30 to-transparent"></div>
                         </div>
-                        <h3 class="serif text-2xl text-[#4A4443]">Escuta Ética</h3>
-                        <p class="font-light text-[#7A7271] leading-relaxed">Sigilo absoluto e postura não-julgadora, garantindo um ambiente de total confiança.</p>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">Escuta Ética</h3>
+                        <p class="font-light text-sm md:text-base text-[#7A7271] leading-relaxed">Sigilo absoluto e postura não-julgadora, garantindo um ambiente de total confiança.</p>
                     </div>
-                    <div class="flex flex-col gap-5 reveal delay-100">
-                        <div class="flex items-center gap-3 mb-2">
+                    <div class="flex flex-col gap-4 md:gap-5 reveal delay-100">
+                        <div class="flex items-center gap-3 mb-1 md:mb-2">
                             <div class="w-1.5 h-1.5 bg-[#B57C7C] rotate-45"></div>
                             <div class="flex-1 h-px bg-gradient-to-r from-[#B57C7C]/30 to-transparent"></div>
                         </div>
-                        <h3 class="serif text-2xl text-[#4A4443]">Profundidade</h3>
-                        <p class="font-light text-[#7A7271] leading-relaxed">Não buscamos soluções rápidas e superficiais, mas a compreensão da raiz do sofrimento.</p>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">Profundidade</h3>
+                        <p class="font-light text-sm md:text-base text-[#7A7271] leading-relaxed">Não buscamos soluções rápidas e superficiais, mas a compreensão da raiz do sofrimento.</p>
                     </div>
-                    <div class="flex flex-col gap-5 reveal delay-200">
-                        <div class="flex items-center gap-3 mb-2">
+                    <div class="flex flex-col gap-4 md:gap-5 reveal delay-200">
+                        <div class="flex items-center gap-3 mb-1 md:mb-2">
                             <div class="w-1.5 h-1.5 bg-[#B57C7C] rotate-45"></div>
                             <div class="flex-1 h-px bg-gradient-to-r from-[#B57C7C]/30 to-transparent"></div>
                         </div>
-                        <h3 class="serif text-2xl text-[#4A4443]">Acolhimento</h3>
-                        <p class="font-light text-[#7A7271] leading-relaxed">Sua dor é validada e respeitada. Aqui, você não precisa ser forte o tempo todo.</p>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">Acolhimento</h3>
+                        <p class="font-light text-sm md:text-base text-[#7A7271] leading-relaxed">Sua dor é validada e respeitada. Aqui, você não precisa ser forte o tempo todo.</p>
                     </div>
-                    <div class="flex flex-col gap-5 reveal">
-                        <div class="flex items-center gap-3 mb-2">
+                    <div class="flex flex-col gap-4 md:gap-5 reveal">
+                        <div class="flex items-center gap-3 mb-1 md:mb-2">
                             <div class="w-1.5 h-1.5 bg-[#B57C7C] rotate-45"></div>
                             <div class="flex-1 h-px bg-gradient-to-r from-[#B57C7C]/30 to-transparent"></div>
                         </div>
-                        <h3 class="serif text-2xl text-[#4A4443]">Experiência</h3>
-                        <p class="font-light text-[#7A7271] leading-relaxed">Duas décadas dedicadas à clínica psicanalítica com foco no sujeito contemporâneo.</p>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">Experiência</h3>
+                        <p class="font-light text-sm md:text-base text-[#7A7271] leading-relaxed">Duas décadas dedicadas à clínica psicanalítica com foco no sujeito contemporâneo.</p>
                     </div>
-                    <div class="flex flex-col gap-5 reveal delay-100">
-                        <div class="flex items-center gap-3 mb-2">
+                    <div class="flex flex-col gap-4 md:gap-5 reveal delay-100">
+                        <div class="flex items-center gap-3 mb-1 md:mb-2">
                             <div class="w-1.5 h-1.5 bg-[#B57C7C] rotate-45"></div>
                             <div class="flex-1 h-px bg-gradient-to-r from-[#B57C7C]/30 to-transparent"></div>
                         </div>
-                        <h3 class="serif text-2xl text-[#4A4443]">Autonomia</h3>
-                        <p class="font-light text-[#7A7271] leading-relaxed">O objetivo é que você se aproprie da sua narrativa e das rédeas da própria vida.</p>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">Autonomia</h3>
+                        <p class="font-light text-sm md:text-base text-[#7A7271] leading-relaxed">O objetivo é que você se aproprie da sua narrativa e das rédeas da própria vida.</p>
                     </div>
-                    <div class="flex flex-col gap-5 reveal delay-200">
-                        <div class="flex items-center gap-3 mb-2">
+                    <div class="flex flex-col gap-4 md:gap-5 reveal delay-200">
+                        <div class="flex items-center gap-3 mb-1 md:mb-2">
                             <div class="w-1.5 h-1.5 bg-[#B57C7C] rotate-45"></div>
                             <div class="flex-1 h-px bg-gradient-to-r from-[#B57C7C]/30 to-transparent"></div>
                         </div>
-                        <h3 class="serif text-2xl text-[#4A4443]">Fronteiras Abertas</h3>
-                        <p class="font-light text-[#7A7271] leading-relaxed">Atendimento 100% EAD, viabilizando o acompanhamento contínuo onde quer que você resida.</p>
+                        <h3 class="serif text-xl md:text-2xl text-[#4A4443]">Fronteiras Abertas</h3>
+                        <p class="font-light text-sm md:text-base text-[#7A7271] leading-relaxed">Atendimento 100% EAD, viabilizando o acompanhamento contínuo onde quer que você resida.</p>
                     </div>
                 </div>
             </section>
 
-            <section class="py-32 px-6 bg-[#F0EAE8]/40 border-t border-b border-[#DFCDCD]/30">
+            <section class="py-20 md:py-32 px-6 bg-[#F0EAE8]/40 border-t border-b border-[#DFCDCD]/30">
                 <div class="max-w-[85rem] mx-auto">
-                    <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6 reveal">
-                        <h2 class="serif text-4xl md:text-5xl text-[#4A4443] text-center md:text-left">Leituras<br/><span class="text-[#B57C7C] italic">e reflexões</span></h2>
-                        <button onclick="navigate('artigos')" class="text-[11px] tracking-[0.2em] uppercase border-b border-[#4A4443] pb-1 text-[#4A4443] hover:text-[#B57C7C] hover:border-[#B57C7C] transition-colors">
+                    <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 gap-6 reveal">
+                        <h2 class="serif text-3xl md:text-5xl text-[#4A4443] text-center md:text-left">Leituras<br/><span class="text-[#B57C7C] italic">e reflexões</span></h2>
+                        <button onclick="navigate('artigos')" class="text-[10px] md:text-[11px] tracking-[0.2em] uppercase border-b border-[#4A4443] pb-1 text-[#4A4443] hover:text-[#B57C7C] hover:border-[#B57C7C] transition-colors">
                             Acessar o Blog
                         </button>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
                         <div class="group cursor-pointer reveal" onclick="navigate('artigos')">
-                            <div class="aspect-[4/3] overflow-hidden rounded-sm mb-6 bg-[#F0EAE8] relative">
+                            <div class="aspect-[4/3] overflow-hidden rounded-sm mb-4 md:mb-6 bg-[#F0EAE8] relative">
                                 <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=800&auto=format&fit=crop" alt="Ansiedade" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out opacity-90" />
                             </div>
-                            <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] block mb-3">Ansiedade</span>
-                            <h3 class="serif text-2xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors leading-snug">O cansaço de ser quem não se é</h3>
+                            <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] block mb-2 md:mb-3">Ansiedade</span>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors leading-snug">O cansaço de ser quem não se é</h3>
                         </div>
                         <div class="group cursor-pointer reveal delay-100" onclick="navigate('artigos')">
-                            <div class="aspect-[4/3] overflow-hidden rounded-sm mb-6 bg-[#F0EAE8] relative">
+                            <div class="aspect-[4/3] overflow-hidden rounded-sm mb-4 md:mb-6 bg-[#F0EAE8] relative">
                                 <img src="https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?q=80&w=800&auto=format&fit=crop" alt="Relacionamentos" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out opacity-90" />
                             </div>
-                            <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] block mb-3">Relacionamentos</span>
-                            <h3 class="serif text-2xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors leading-snug">A ilusão da metade da laranja</h3>
+                            <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] block mb-2 md:mb-3">Relacionamentos</span>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors leading-snug">A ilusão da metade da laranja</h3>
                         </div>
                         <div class="group cursor-pointer reveal delay-200" onclick="navigate('artigos')">
-                            <div class="aspect-[4/3] overflow-hidden rounded-sm mb-6 bg-[#F0EAE8] relative">
+                            <div class="aspect-[4/3] overflow-hidden rounded-sm mb-4 md:mb-6 bg-[#F0EAE8] relative">
                                 <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800&auto=format&fit=crop" alt="Autoconhecimento" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out opacity-90" />
                             </div>
-                            <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] block mb-3">Autoconhecimento</span>
-                            <h3 class="serif text-2xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors leading-snug">Permissão para sentir o vazio</h3>
+                            <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] block mb-2 md:mb-3">Autoconhecimento</span>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors leading-snug">Permissão para sentir o vazio</h3>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="py-40 px-6 text-center reveal relative overflow-hidden">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[400px] serif text-[#B57C7C] opacity-[0.04] select-none pointer-events-none leading-none">"</div>
+            <section class="py-24 md:py-40 px-6 text-center reveal relative overflow-hidden">
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[200px] md:text-[400px] serif text-[#B57C7C] opacity-[0.04] select-none pointer-events-none leading-none">"</div>
                 
-                <h2 class="serif text-3xl md:text-5xl max-w-4xl mx-auto leading-relaxed text-[#4A4443] relative z-10">
+                <h2 class="serif text-2xl md:text-4xl max-w-4xl mx-auto leading-relaxed text-[#4A4443] relative z-10">
                     “Às vezes, tudo o que precisamos é de um espaço seguro para <span class="italic text-[#B57C7C]">existir sem máscaras</span>.”
                 </h2>
             </section>
@@ -479,163 +519,159 @@
         </div>
 
         <!-- ================= COMO AJUDAR ================= -->
-        <div id="page-como-ajudar" class="page-content hidden pt-40 pb-20 px-6 md:px-12 max-w-[85rem] mx-auto bg-grid-pattern relative">
+        <div id="page-como-ajudar" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto bg-grid-pattern relative">
             <div class="absolute inset-0 bg-[#FAF8F7]/80 z-0"></div>
 
-            <div class="text-center mb-24 reveal relative z-10">
-                <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-4">Cartografia do Sofrimento</span>
-                <h1 class="serif text-5xl md:text-6xl text-[#4A4443]">Como vou te ajudar</h1>
+            <div class="text-center mb-16 md:mb-24 reveal relative z-10">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Cartografia do Sofrimento</span>
+                <h1 class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443]">Como vou te ajudar</h1>
             </div>
             
-            <div class="relative z-10 reveal delay-100 max-w-4xl mx-auto text-center mb-24">
-                <p class="text-xl font-light text-[#7A7271] leading-relaxed">
+            <div class="relative z-10 reveal delay-100 max-w-4xl mx-auto text-center mb-16 md:mb-24">
+                <p class="text-base md:text-lg lg:text-xl font-light text-[#7A7271] leading-relaxed">
                     O sofrimento emocional não escolhe hora nem status. Ele se manifesta de formas variadas — no corpo, nas relações, na exaustão ou no silêncio da angústia. Minha escuta clínica abraça as mais diversas complexidades da experiência humana, mapeando e acolhendo os temas abaixo.
                 </p>
             </div>
 
             <!-- Grid de Cartões Conceptuais -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10 pt-10 border-t border-[#DFCDCD]/50 mt-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10 pt-10 border-t border-[#DFCDCD]/50 mt-10 md:mt-16">
                 
                 <!-- Categoria 1: Saúde Emocional -->
-                <div class="reveal bg-[#FAF8F7] p-10 md:p-14 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:bg-[#F0EAE8]/30 transition-all duration-700 shadow-sm hover:shadow-[0_15px_40px_rgba(181,124,124,0.08)] relative overflow-hidden group">
-                    <!-- Marca d'água abstrata ao fundo -->
+                <div class="reveal bg-[#FAF8F7] p-6 md:p-10 lg:p-14 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:bg-[#F0EAE8]/30 transition-all duration-700 shadow-sm hover:shadow-[0_15px_40px_rgba(181,124,124,0.08)] relative overflow-hidden group">
                     <div class="absolute -top-10 -right-10 text-[#B57C7C] opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700 pointer-events-none">
                         <svg width="240" height="240" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"/><path d="M8 12c0 4.4 4 4.4 4 4.4s4 0 4-4.4-4-4.4-4-4.4-4 0-4 4.4z"/>
                         </svg>
                     </div>
 
-                    <div class="mb-8 text-[#B57C7C]">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="mb-6 md:mb-8 text-[#B57C7C]">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"/><path d="M8 12c0 4.4 4 4.4 4 4.4s4 0 4-4.4-4-4.4-4-4.4-4 0-4 4.4z"/>
                         </svg>
                     </div>
                     
-                    <h2 class="serif text-3xl md:text-4xl text-[#B57C7C] mb-10 pb-6 border-b border-[#DFCDCD]/50 relative z-10">Saúde Emocional</h2>
+                    <h2 class="serif text-2xl md:text-3xl lg:text-4xl text-[#B57C7C] mb-8 pb-4 border-b border-[#DFCDCD]/50 relative z-10">Saúde Emocional</h2>
                     
-                    <div class="flex flex-col gap-8 relative z-10">
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                    <div class="flex flex-col gap-6 md:gap-8 relative z-10">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Ansiedade e Pânico</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">Identificar e tratar a angústia constante, decifrando a urgência e o medo que paralisam o corpo e a mente.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Ansiedade e Pânico</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">Identificar e tratar a angústia constante, decifrando a urgência e o medo que paralisam o corpo e a mente.</p>
                         </div>
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Burnout e Esgotamento</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">O burnout não é apenas cansaço; é um esgotamento mental profundo gerado pelo excesso e pela desconexão de si mesmo.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Burnout e Esgotamento</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">O burnout não é apenas cansaço; é um esgotamento mental profundo gerado pelo excesso e pela desconexão de si mesmo.</p>
                         </div>
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Compulsão e Repetição</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">A investigação acolhedora sobre a satisfação paradoxal obtida pelas vias da compulsão e repetição de padrões destrutivos.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Compulsão e Repetição</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">A investigação acolhedora sobre a satisfação paradoxal obtida pelas vias da compulsão e repetição de padrões destrutivos.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Categoria 2: Educação Parental & Adoção -->
-                <div class="reveal delay-100 bg-[#FAF8F7] p-10 md:p-14 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:bg-[#F0EAE8]/30 transition-all duration-700 shadow-sm hover:shadow-[0_15px_40px_rgba(181,124,124,0.08)] relative overflow-hidden group">
-                    <!-- Marca d'água abstrata ao fundo -->
+                <div class="reveal delay-100 bg-[#FAF8F7] p-6 md:p-10 lg:p-14 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:bg-[#F0EAE8]/30 transition-all duration-700 shadow-sm hover:shadow-[0_15px_40px_rgba(181,124,124,0.08)] relative overflow-hidden group">
                     <div class="absolute -top-10 -right-10 text-[#B57C7C] opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700 pointer-events-none">
                         <svg width="240" height="240" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="12" r="3"/>
                         </svg>
                     </div>
 
-                    <div class="mb-8 text-[#B57C7C]">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="mb-6 md:mb-8 text-[#B57C7C]">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="12" r="3"/>
                         </svg>
                     </div>
                     
-                    <h2 class="serif text-3xl md:text-4xl text-[#B57C7C] mb-10 pb-6 border-b border-[#DFCDCD]/50 relative z-10">Educação Parental & Adoção</h2>
+                    <h2 class="serif text-2xl md:text-3xl lg:text-4xl text-[#B57C7C] mb-8 pb-4 border-b border-[#DFCDCD]/50 relative z-10">Educação Parental & Adoção</h2>
                     
-                    <div class="flex flex-col gap-8 relative z-10">
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                    <div class="flex flex-col gap-6 md:gap-8 relative z-10">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Maternidade e Feminilidade</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">As transmissões geracionais, as dores e as belezas da complexa relação entre mães e filhas.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Maternidade e Feminilidade</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">As transmissões geracionais, as dores e as belezas da complexa relação entre mães e filhas.</p>
                         </div>
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Agressividade e Limites</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">O dilema dos pais entre a censura e a liberdade no acolhimento de "crianças tirânicas" e na imposição do limite.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Agressividade e Limites</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">O dilema dos pais entre a censura e a liberdade no acolhimento de "crianças tirânicas" e na imposição do limite.</p>
                         </div>
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Adoção de um Filho</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">Adoção compreendida não apenas no âmbito jurídico, mas como um contrato afetivo profundo para formar vínculos verdadeiros.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Adoção de um Filho</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">Adoção compreendida não apenas no âmbito jurídico, mas como um contrato afetivo profundo para formar vínculos verdadeiros.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Categoria 3: Laços & Relacionamentos -->
-                <div class="reveal bg-[#FAF8F7] p-10 md:p-14 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:bg-[#F0EAE8]/30 transition-all duration-700 shadow-sm hover:shadow-[0_15px_40px_rgba(181,124,124,0.08)] relative overflow-hidden group">
-                    <!-- Marca d'água abstrata ao fundo -->
+                <div class="reveal bg-[#FAF8F7] p-6 md:p-10 lg:p-14 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:bg-[#F0EAE8]/30 transition-all duration-700 shadow-sm hover:shadow-[0_15px_40px_rgba(181,124,124,0.08)] relative overflow-hidden group">
                     <div class="absolute -top-10 -right-10 text-[#B57C7C] opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700 pointer-events-none">
                         <svg width="240" height="240" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/>
                         </svg>
                     </div>
 
-                    <div class="mb-8 text-[#B57C7C]">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="mb-6 md:mb-8 text-[#B57C7C]">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/>
                         </svg>
                     </div>
                     
-                    <h2 class="serif text-3xl md:text-4xl text-[#B57C7C] mb-10 pb-6 border-b border-[#DFCDCD]/50 relative z-10">Laços & Relacionamentos</h2>
+                    <h2 class="serif text-2xl md:text-3xl lg:text-4xl text-[#B57C7C] mb-8 pb-4 border-b border-[#DFCDCD]/50 relative z-10">Laços & Relacionamentos</h2>
                     
-                    <div class="flex flex-col gap-8 relative z-10">
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                    <div class="flex flex-col gap-6 md:gap-8 relative z-10">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Comunicação Efetiva</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">A palavra como pilar essencial para a qualidade das relações afetivas, ajudando a dissolver conflitos não ditos.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Comunicação Efetiva</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">A palavra como pilar essencial para a qualidade das relações afetivas, ajudando a dissolver conflitos não ditos.</p>
                         </div>
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Egoísmo e Violência</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">Estratégias de escuta e contorno para cultivar a empatia e estabelecer defesas saudáveis contra a hostilidade nas relações.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Egoísmo e Violência</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">Estratégias de escuta e contorno para cultivar a empatia e estabelecer defesas saudáveis contra a hostilidade nas relações.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Categoria 4: Adolescência & Passagens -->
-                <div class="reveal delay-100 bg-[#FAF8F7] p-10 md:p-14 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:bg-[#F0EAE8]/30 transition-all duration-700 shadow-sm hover:shadow-[0_15px_40px_rgba(181,124,124,0.08)] relative overflow-hidden group">
-                    <!-- Marca d'água abstrata ao fundo -->
+                <div class="reveal delay-100 bg-[#FAF8F7] p-6 md:p-10 lg:p-14 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:bg-[#F0EAE8]/30 transition-all duration-700 shadow-sm hover:shadow-[0_15px_40px_rgba(181,124,124,0.08)] relative overflow-hidden group">
                     <div class="absolute -top-10 -right-10 text-[#B57C7C] opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700 pointer-events-none">
                         <svg width="240" height="240" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
                         </svg>
                     </div>
 
-                    <div class="mb-8 text-[#B57C7C]">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="mb-6 md:mb-8 text-[#B57C7C]">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
                         </svg>
                     </div>
                     
-                    <h2 class="serif text-3xl md:text-4xl text-[#B57C7C] mb-10 pb-6 border-b border-[#DFCDCD]/50 relative z-10">Adolescência & Passagens</h2>
+                    <h2 class="serif text-2xl md:text-3xl lg:text-4xl text-[#B57C7C] mb-8 pb-4 border-b border-[#DFCDCD]/50 relative z-10">Adolescência & Passagens</h2>
                     
-                    <div class="flex flex-col gap-8 relative z-10">
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                    <div class="flex flex-col gap-6 md:gap-8 relative z-10">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">A Crise da Adolescência</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">Conhecer e acolher os diversos aspectos, transformações e lutos que marcam essa travessia estruturante rumo à vida adulta.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">A Crise da Adolescência</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">Conhecer e acolher os diversos aspectos, transformações e lutos que marcam essa travessia estruturante rumo à vida adulta.</p>
                         </div>
-                        <div class="group relative pl-6 py-1 transition-all duration-500 hover:translate-x-2">
+                        <div class="group relative pl-4 md:pl-6 py-1 transition-all duration-500 hover:translate-x-2">
                             <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-[#DFCDCD]"></div>
                             <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-[#B57C7C] scale-y-0 origin-top transition-transform duration-500 group-hover:scale-y-100"></div>
-                            <h3 class="serif text-2xl text-[#4A4443] mb-2">Transições e Sentido de Vida</h3>
-                            <p class="text-base font-light text-[#7A7271] m-0 leading-relaxed">O papel de ideais, da moralidade e das escolhas pessoais na hora de apaziguar o sofrimento diante das incertezas existenciais.</p>
+                            <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-2">Transições e Sentido de Vida</h3>
+                            <p class="text-sm md:text-base font-light text-[#7A7271] m-0 leading-relaxed">O papel de ideais, da moralidade e das escolhas pessoais na hora de apaziguar o sofrimento diante das incertezas existenciais.</p>
                         </div>
                     </div>
                 </div>
@@ -644,57 +680,54 @@
         </div>
 
         <!-- ================= MUITO PRAZER ================= -->
-        <div id="page-muito-prazer" class="page-content hidden pt-40 pb-20 px-6 md:px-12 max-w-[85rem] mx-auto relative">
-            <div class="text-center mb-24 reveal relative z-10">
-                <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-4">A pessoa por trás da escuta</span>
-                <h1 class="serif text-5xl md:text-6xl text-[#4A4443]">Muito Prazer, Mariana</h1>
+        <div id="page-muito-prazer" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto relative">
+            <div class="text-center mb-16 md:mb-24 reveal relative z-10">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">A pessoa por trás da escuta</span>
+                <h1 class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443]">Muito Prazer, Mariana</h1>
             </div>
             
-            <!-- Bloco 1: Intro e Base -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-20 items-center relative z-10 mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-20 items-center relative z-10 mb-16 md:mb-24">
                 <div class="lg:col-span-5 reveal delay-100 relative">
-                    <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-[radial-gradient(#DFCDCD_1.5px,transparent_1.5px)] [background-size:12px_12px] z-[-1] opacity-40"></div>
-                    <div class="image-frame w-full aspect-[3/4] bg-[#FAF8F7]">
+                    <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-32 md:w-40 h-32 md:h-40 bg-[radial-gradient(#DFCDCD_1.5px,transparent_1.5px)] [background-size:12px_12px] z-[-1] opacity-40"></div>
+                    <div class="image-frame w-full max-w-[280px] md:max-w-md mx-auto aspect-[3/4] bg-[#FAF8F7]">
                         <img src="https://i.ibb.co/Qjx3Bq6t/mariana.png" alt="Dra. Mariana Martins" class="object-top shadow-sm" />
                     </div>
                 </div>
                 
-                <div class="lg:col-span-7 flex flex-col gap-6 font-light text-lg text-[#7A7271] leading-relaxed pt-4 reveal delay-200">
-                    <h2 class="text-3xl md:text-4xl serif text-[#4A4443] leading-snug mb-4">A clínica como espaço de contorno e transformação.</h2>
+                <div class="lg:col-span-7 flex flex-col gap-5 md:gap-6 font-light text-base md:text-lg text-[#7A7271] leading-relaxed pt-4 reveal delay-200">
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl serif text-[#4A4443] leading-snug mb-2 md:mb-4">A clínica como espaço de contorno e transformação.</h2>
                     
                     <p>Sou psicóloga formada pela PUC-SP desde 2002 e especialista em Psicologia Clínica pelo CFP-SP. Minha trajetória é marcada por uma formação contínua, com especialização em Neuroaprendizagem, Transtornos do Aprender e Psicanálise, além de aprofundamentos constantes na clínica psicanalítica.</p>
                     
                     <p>Atuo na clínica há mais de vinte anos e por dez anos na clínica de Psicologia Plenamente, realizando atendimento psicológico a adolescentes e adultos. Meu trabalho é orientado principalmente pela psicanálise, campo no qual participo ativamente de atividades clínicas e de pesquisa há mais de quinze anos, vinculada à Escola Brasileira de Psicanálise (EBP), por meio do Instituto CLIPP. Também realizei aprimoramentos pelo Instituto Sedes Sapientiae e pela Derdic/PUC-SP.</p>
                     
                     <!-- Resumo Rápido -->
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-6 pt-8 border-t border-[#DFCDCD]/50">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mt-4 md:mt-6 pt-6 md:pt-8 border-t border-[#DFCDCD]/50">
                         <div>
-                            <span class="block text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-1">Formação</span>
-                            <span class="text-[#4A4443] font-medium">PUC-SP (2002)</span>
+                            <span class="block text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-1">Formação</span>
+                            <span class="text-[#4A4443] font-medium text-sm md:text-base">PUC-SP (2002)</span>
                         </div>
                         <div>
-                            <span class="block text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-1">Registro</span>
-                            <span class="text-[#4A4443] font-medium">CRP 06/70269</span>
+                            <span class="block text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-1">Registro</span>
+                            <span class="text-[#4A4443] font-medium text-sm md:text-base">CRP 06/70269</span>
                         </div>
                         <div class="col-span-2 md:col-span-1">
-                            <span class="block text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-1">Atuação</span>
-                            <span class="text-[#4A4443] font-medium">+20 anos de clínica</span>
+                            <span class="block text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-1">Atuação</span>
+                            <span class="text-[#4A4443] font-medium text-sm md:text-base">+20 anos de clínica</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bloco 2: Citação de Destaque -->
-            <div class="reveal bg-[#F0EAE8]/50 p-10 md:p-16 rounded-sm border-l-2 border-[#B57C7C] relative mb-24 max-w-5xl mx-auto shadow-sm">
-                <div class="absolute -top-10 -left-6 text-[120px] serif text-[#DFCDCD] opacity-30 select-none pointer-events-none leading-none">"</div>
-                <p class="serif text-2xl md:text-3xl text-[#4A4443] italic leading-snug relative z-10 text-center md:text-left">
+            <div class="reveal bg-[#F0EAE8]/50 p-8 md:p-12 lg:p-16 rounded-sm border-l-2 border-[#B57C7C] relative mb-16 md:mb-24 max-w-5xl mx-auto shadow-sm">
+                <div class="absolute -top-6 -left-4 md:-top-10 md:-left-6 text-[80px] md:text-[120px] serif text-[#DFCDCD] opacity-30 select-none pointer-events-none leading-none">"</div>
+                <p class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] italic leading-snug relative z-10 text-center md:text-left">
                     Realizo atendimento psicológico online para pacientes no Brasil e no exterior, oferecendo um espaço de escuta ética, cuidadosa e singular, com foco no acolhimento, no autoconhecimento e na promoção da saúde mental.
                 </p>
             </div>
 
-            <!-- Bloco 3: Contextos e Autoridade Dinâmica -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-20 items-center relative z-10">
-                <div class="lg:col-span-6 flex flex-col gap-6 font-light text-lg text-[#7A7271] leading-relaxed reveal delay-100 order-2 lg:order-1">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-20 items-center relative z-10">
+                <div class="lg:col-span-6 flex flex-col gap-5 md:gap-6 font-light text-base md:text-lg text-[#7A7271] leading-relaxed reveal delay-100 order-2 lg:order-1">
                     <p>Minha formação inclui treinamentos no <strong>Beck Institute of Cognitive Behavior Therapy</strong> e em <strong>Dialectical Behavior Therapy</strong>, além de certificação em Educação Parental pela Positive Discipline Association, o que amplia meu olhar clínico para diferentes contextos do desenvolvimento humano e das relações familiares.</p>
                     
                     <p>Ao longo da minha trajetória, atuei em contextos institucionais e hospitalares, no atendimento a famílias, crianças, adolescentes e adultos, incluindo experiência profunda em clínica de internação psiquiátrica.</p>
@@ -702,28 +735,27 @@
                     <p>Atuei em Varas de Família e, atualmente, sou perita na Vara da Infância e Juventude do Tribunal de Justiça de São Paulo, com formação em Entrevista Forense pelo Conselho Nacional de Justiça.</p>
                 </div>
                 
-                <!-- Grid Visual Dinâmico de Experiências -->
                 <div class="lg:col-span-6 reveal delay-200 order-1 lg:order-2">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="bg-[#FAF8F7] p-8 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:shadow-sm transition-all duration-500">
-                            <span class="text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-3 block">Institucional</span>
-                            <h4 class="serif text-xl text-[#4A4443] mb-2">Tribunal de Justiça (TJSP)</h4>
-                            <p class="text-sm font-light text-[#7A7271] leading-relaxed">Perita na Vara da Infância e Juventude e atuação ativa em Varas de Família.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                        <div class="bg-[#FAF8F7] p-6 md:p-8 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:shadow-sm transition-all duration-500">
+                            <span class="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-2 md:mb-3 block">Institucional</span>
+                            <h4 class="serif text-lg md:text-xl text-[#4A4443] mb-2">Tribunal de Justiça (TJSP)</h4>
+                            <p class="text-xs md:text-sm font-light text-[#7A7271] leading-relaxed">Perita na Vara da Infância e Juventude e atuação ativa em Varas de Família.</p>
                         </div>
-                        <div class="bg-[#FAF8F7] p-8 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:shadow-sm transition-all duration-500">
-                            <span class="text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-3 block">Saúde Mental</span>
-                            <h4 class="serif text-xl text-[#4A4443] mb-2">Clínica de Internação</h4>
-                            <p class="text-sm font-light text-[#7A7271] leading-relaxed">Atendimento a famílias e pacientes com diagnósticos diversos em internação psiquiátrica.</p>
+                        <div class="bg-[#FAF8F7] p-6 md:p-8 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:shadow-sm transition-all duration-500">
+                            <span class="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-2 md:mb-3 block">Saúde Mental</span>
+                            <h4 class="serif text-lg md:text-xl text-[#4A4443] mb-2">Clínica de Internação</h4>
+                            <p class="text-xs md:text-sm font-light text-[#7A7271] leading-relaxed">Atendimento a famílias e pacientes com diagnósticos diversos em internação psiquiátrica.</p>
                         </div>
-                        <div class="bg-[#FAF8F7] p-8 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:shadow-sm transition-all duration-500">
-                            <span class="text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-3 block">Treinamentos</span>
-                            <h4 class="serif text-xl text-[#4A4443] mb-2">Beck Institute & DBT</h4>
-                            <p class="text-sm font-light text-[#7A7271] leading-relaxed">Capacitação avançada para suporte clínico e manejo emocional especializado.</p>
+                        <div class="bg-[#FAF8F7] p-6 md:p-8 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:shadow-sm transition-all duration-500">
+                            <span class="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-2 md:mb-3 block">Treinamentos</span>
+                            <h4 class="serif text-lg md:text-xl text-[#4A4443] mb-2">Beck Institute & DBT</h4>
+                            <p class="text-xs md:text-sm font-light text-[#7A7271] leading-relaxed">Capacitação avançada para suporte clínico e manejo emocional especializado.</p>
                         </div>
-                        <div class="bg-[#FAF8F7] p-8 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:shadow-sm transition-all duration-500">
-                            <span class="text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-3 block">Família</span>
-                            <h4 class="serif text-xl text-[#4A4443] mb-2">Educação Parental</h4>
-                            <p class="text-sm font-light text-[#7A7271] leading-relaxed">Certificação internacional pela conceituada Positive Discipline Association.</p>
+                        <div class="bg-[#FAF8F7] p-6 md:p-8 rounded-sm border border-[#DFCDCD]/50 hover:border-[#B57C7C]/40 hover:shadow-sm transition-all duration-500">
+                            <span class="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] mb-2 md:mb-3 block">Família</span>
+                            <h4 class="serif text-lg md:text-xl text-[#4A4443] mb-2">Educação Parental</h4>
+                            <p class="text-xs md:text-sm font-light text-[#7A7271] leading-relaxed">Certificação internacional pela conceituada Positive Discipline Association.</p>
                         </div>
                     </div>
                 </div>
@@ -731,56 +763,56 @@
         </div>
 
         <!-- ================= FORMAÇÃO ================= -->
-        <div id="page-formacao" class="page-content hidden pt-40 pb-20 px-6 md:px-12 max-w-4xl mx-auto">
-            <div class="text-center mb-24 reveal">
-                <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-4">Rigor teórico e prático</span>
-                <h1 class="serif text-5xl md:text-6xl text-[#4A4443]">Formação & Experiência</h1>
+        <div id="page-formacao" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-4xl mx-auto">
+            <div class="text-center mb-16 md:mb-24 reveal">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Rigor teórico e prático</span>
+                <h1 class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443]">Formação & Experiência</h1>
             </div>
             
-            <div class="border-l border-[#DFCDCD] pl-8 md:pl-12 space-y-20 relative">
+            <div class="border-l border-[#DFCDCD] pl-6 md:pl-10 space-y-12 md:space-y-20 relative">
                 <div class="absolute -left-px top-0 h-full w-[2px] bg-gradient-to-b from-[#B57C7C] via-transparent to-transparent opacity-50"></div>
 
                 <div class="relative reveal">
-                    <div class="absolute -left-[37px] md:-left-[53px] top-1.5 w-3 h-3 rounded-full bg-[#B57C7C] ring-4 ring-[#FAF8F7]"></div>
-                    <span class="text-sm font-serif italic text-[#B57C7C]">Mais de 15 anos</span>
-                    <h3 class="serif text-2xl md:text-3xl mt-3 mb-4 text-[#4A4443]">Atuação Clínica e Percurso Psicanalítico</h3>
-                    <p class="font-light text-[#7A7271] leading-relaxed text-base">Atendimento focado em adolescentes e adultos. Analista praticante e participante das atividades clínicas e de pesquisa por mais de quinze anos na CLIPP - Instituto da EBP (Escola Brasileira de Psicanálise). Possui aprimoramentos pelo Instituto Sedes Sapientiae e em Clínica Psicanalítica dos Distúrbios da Linguagem pela Derdic/PUC-SP, além de experiência de mais de dez anos atuando na clínica Psicologia Plenamente.</p>
+                    <div class="absolute -left-[30px] md:-left-[46px] top-1.5 w-3 h-3 rounded-full bg-[#B57C7C] ring-4 ring-[#FAF8F7]"></div>
+                    <span class="text-xs md:text-sm font-serif italic text-[#B57C7C]">Mais de 15 anos</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl mt-2 md:mt-3 mb-3 md:mb-4 text-[#4A4443]">Atuação Clínica e Percurso Psicanalítico</h3>
+                    <p class="font-light text-[#7A7271] leading-relaxed text-sm md:text-base">Atendimento focado em adolescentes e adultos. Analista praticante e participante das atividades clínicas e de pesquisa por mais de quinze anos na CLIPP - Instituto da EBP (Escola Brasileira de Psicanálise). Possui aprimoramentos pelo Instituto Sedes Sapientiae e em Clínica Psicanalítica dos Distúrbios da Linguagem pela Derdic/PUC-SP, além de experiência de mais de dez anos atuando na clínica Psicologia Plenamente.</p>
                 </div>
                 
                 <div class="relative reveal">
-                    <div class="absolute -left-[37px] md:-left-[53px] top-1.5 w-3 h-3 rounded-full bg-[#F0EAE8] ring-4 ring-[#FAF8F7]"></div>
-                    <span class="text-sm font-serif italic text-[#B57C7C]">Desde 2002</span>
-                    <h3 class="serif text-2xl md:text-3xl mt-3 mb-4 text-[#4A4443]">Psicologia, Especializações e TCC</h3>
-                    <p class="font-light text-[#7A7271] leading-relaxed text-base">Psicóloga graduada pela PUC-SP desde 2002 e Especialista em Psicologia Clínica pelo CFP-SP. É também Especialista em Neuroaprendizagem, Transtornos do Aprender e Psicanálise pela FTP. Ampliando seu repertório clínico, realizou treinamentos de excelência no Beck Institute of Cognitive Behavior Therapy e em Dialectical Behavior Therapy (DBT).</p>
+                    <div class="absolute -left-[30px] md:-left-[46px] top-1.5 w-3 h-3 rounded-full bg-[#F0EAE8] ring-4 ring-[#FAF8F7]"></div>
+                    <span class="text-xs md:text-sm font-serif italic text-[#B57C7C]">Desde 2002</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl mt-2 md:mt-3 mb-3 md:mb-4 text-[#4A4443]">Psicologia, Especializações e TCC</h3>
+                    <p class="font-light text-[#7A7271] leading-relaxed text-sm md:text-base">Psicóloga graduada pela PUC-SP desde 2002 e Especialista em Psicologia Clínica pelo CFP-SP. É também Especialista em Neuroaprendizagem, Transtornos do Aprender e Psicanálise pela FTP. Ampliando seu repertório clínico, realizou treinamentos de excelência no Beck Institute of Cognitive Behavior Therapy e em Dialectical Behavior Therapy (DBT).</p>
                 </div>
 
                 <div class="relative reveal">
-                    <div class="absolute -left-[37px] md:-left-[53px] top-1.5 w-3 h-3 rounded-full bg-[#F0EAE8] ring-4 ring-[#FAF8F7]"></div>
-                    <span class="text-sm font-serif italic text-[#B57C7C]">3 anos em Saúde Mental</span>
-                    <h3 class="serif text-2xl md:text-3xl mt-3 mb-4 text-[#4A4443]">Psicologia Jurídica e Institucional</h3>
-                    <p class="font-light text-[#7A7271] leading-relaxed text-base">Extensa atuação forense: Perita na Vara da Infância e Juventude (TJSP), atuação em Varas de Família (TJSP) e treinamento em Entrevista Forense pelo Conselho Nacional de Justiça. No contexto institucional, dedicou três anos ao atendimento de famílias e pacientes internados com diversos diagnósticos na Clínica de Repouso e Internação Parque Julieta, além de atuar como monitora no Projeto TECER (USP/IP).</p>
+                    <div class="absolute -left-[30px] md:-left-[46px] top-1.5 w-3 h-3 rounded-full bg-[#F0EAE8] ring-4 ring-[#FAF8F7]"></div>
+                    <span class="text-xs md:text-sm font-serif italic text-[#B57C7C]">3 anos em Saúde Mental</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl mt-2 md:mt-3 mb-3 md:mb-4 text-[#4A4443]">Psicologia Jurídica e Institucional</h3>
+                    <p class="font-light text-[#7A7271] leading-relaxed text-sm md:text-base">Extensa atuação forense: Perita na Vara da Infância e Juventude (TJSP), atuação em Varas de Família (TJSP) e treinamento em Entrevista Forense pelo Conselho Nacional de Justiça. No contexto institucional, dedicou três anos ao atendimento de famílias e pacientes internados com diversos diagnósticos na Clínica de Repouso e Internação Parque Julieta, além de atuar como monitora no Projeto TECER (USP/IP).</p>
                 </div>
 
                 <div class="relative reveal">
-                    <div class="absolute -left-[37px] md:-left-[53px] top-1.5 w-3 h-3 rounded-full bg-[#F0EAE8] ring-4 ring-[#FAF8F7]"></div>
-                    <span class="text-sm font-serif italic text-[#B57C7C]">8 anos de docência</span>
-                    <h3 class="serif text-2xl md:text-3xl mt-3 mb-4 text-[#4A4443]">Educação Parental e Docência</h3>
-                    <p class="font-light text-[#7A7271] leading-relaxed text-base">Certificada em Educação Parental pela Positive Discipline Association e Licenciada em Pedagogia. Possui profunda bagagem prática no universo infanto-juvenil, somando oito anos de docência direta na Educação Infantil pela Escola Arraial das Cores.</p>
+                    <div class="absolute -left-[30px] md:-left-[46px] top-1.5 w-3 h-3 rounded-full bg-[#F0EAE8] ring-4 ring-[#FAF8F7]"></div>
+                    <span class="text-xs md:text-sm font-serif italic text-[#B57C7C]">8 anos de docência</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl mt-2 md:mt-3 mb-3 md:mb-4 text-[#4A4443]">Educação Parental e Docência</h3>
+                    <p class="font-light text-[#7A7271] leading-relaxed text-sm md:text-base">Certificada em Educação Parental pela Positive Discipline Association e Licenciada em Pedagogia. Possui profunda bagagem prática no universo infanto-juvenil, somando oito anos de docência direta na Educação Infantil pela Escola Arraial das Cores.</p>
                 </div>
             </div>
         </div>
 
         <!-- ================= ABORDAGEM ================= -->
-        <div id="page-abordagem" class="page-content hidden pt-40 pb-20 px-6 md:px-12 max-w-[85rem] mx-auto">
-            <div class="text-center mb-24 reveal">
-                <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-4">Teoria · Abordagem · Modelo Clínico</span>
-                <h1 class="serif text-5xl md:text-6xl text-[#4A4443]">Minha abordagem clínica</h1>
+        <div id="page-abordagem" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto">
+            <div class="text-center mb-16 md:mb-24 reveal">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Teoria · Abordagem · Modelo Clínico</span>
+                <h1 class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443]">Minha abordagem clínica</h1>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
-                <div class="flex flex-col gap-8 font-light text-lg text-[#7A7271] leading-relaxed reveal delay-100">
-                    <p class="text-2xl md:text-3xl serif text-[#4A4443] leading-snug italic relative mb-4">
-                        <span class="absolute -left-8 top-4 w-4 h-[1px] bg-[#B57C7C] hidden md:block"></span>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
+                <div class="flex flex-col gap-6 md:gap-8 font-light text-base md:text-lg text-[#7A7271] leading-relaxed reveal delay-100">
+                    <p class="text-xl md:text-2xl lg:text-3xl serif text-[#4A4443] leading-snug italic relative mb-2 md:mb-4">
+                        <span class="absolute -left-6 md:-left-8 top-3 md:top-4 w-4 h-[1px] bg-[#B57C7C] hidden md:block"></span>
                         "A psicanálise é o método de investigação e tratamento que utilizo nos meus atendimentos, que são feitos Online."
                     </p>
                     <p class="font-medium text-[#4A4443]">Vou te contar o que isso significa!</p>
@@ -789,9 +821,9 @@
                     <p>Esse método foi criado por Sigmund Freud há mais de um século e vem sofrendo reformulações práticas e teóricas desde então. Jacques Lacan é um dos nomes expoentes que contribuíram para a renovação da psicanálise.</p>
                 </div>
                 <div class="reveal delay-200">
-                    <div class="bg-[#F0EAE8]/50 p-12 rounded-sm border-l-2 border-[#B57C7C] relative">
-                        <div class="absolute -top-10 -left-6 text-[120px] serif text-[#DFCDCD] opacity-30 select-none pointer-events-none leading-none">"</div>
-                        <p class="serif text-2xl md:text-3xl text-[#4A4443] italic leading-snug relative z-10">
+                    <div class="bg-[#F0EAE8]/50 p-8 md:p-12 rounded-sm border-l-2 border-[#B57C7C] relative">
+                        <div class="absolute -top-8 -left-4 md:-top-10 md:-left-6 text-[80px] md:text-[120px] serif text-[#DFCDCD] opacity-30 select-none pointer-events-none leading-none">"</div>
+                        <p class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] italic leading-snug relative z-10 text-center md:text-left">
                             Costumo dizer que a psicanálise é uma prática clínica que visa a responsabilização ética do paciente pelo seu modo singular de ser e estar no mundo, desde que seu modo de viver implique uma redução do sofrimento.
                         </p>
                     </div>
@@ -800,168 +832,168 @@
         </div>
 
         <!-- ================= ARTIGOS ================= -->
-        <div id="page-artigos" class="page-content hidden pt-40 pb-20 px-6 md:px-12 max-w-[85rem] mx-auto">
-            <div class="text-center mb-24 reveal">
-                <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-4">Escritos para a alma</span>
-                <h1 class="serif text-5xl md:text-6xl text-[#4A4443]">Journal Clínico</h1>
-                <p class="text-lg font-light text-[#7A7271] mt-6 max-w-2xl mx-auto">Reflexões acessíveis sobre o sofrimento humano, laços sociais e os caminhos da análise.</p>
+        <div id="page-artigos" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto">
+            <div class="text-center mb-16 md:mb-24 reveal">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Escritos para a alma</span>
+                <h1 class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443]">Journal Clínico</h1>
+                <p class="text-base md:text-lg font-light text-[#7A7271] mt-4 md:mt-6 max-w-2xl mx-auto px-4">Reflexões acessíveis sobre o sofrimento humano, laços sociais e os caminhos da análise.</p>
             </div>
             
             <!-- Grid Editorial de Textos -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-12 md:gap-y-16">
                 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Relacionamentos</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Como cultivar um relacionamento feliz? Estratégias</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Inicialmente, é importante destacar..."</p>
-                </div>
-                
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Saúde Emocional</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Burnout, o que é?</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"O burnout não é só cansaço, é um esgotamento mental profundo..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Relacionamentos</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Como cultivar um relacionamento feliz? Estratégias</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Inicialmente, é importante destacar..."</p>
                 </div>
                 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Saúde Emocional</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Ansiedade, como tratar</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Como tratar a ansiedade? A ansiedade é um afeto que demanda contorno..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Saúde Emocional</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Burnout, o que é?</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"O burnout não é só cansaço, é um esgotamento mental profundo..."</p>
                 </div>
                 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Psicoterapia</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Psicoterapia online</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A psicoterapia online é uma alternativa segura para encontrar respiro..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Saúde Emocional</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Ansiedade, como tratar</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Como tratar a ansiedade? A ansiedade é um afeto que demanda contorno..."</p>
                 </div>
                 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Relacionamentos</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Avó, pai e filho em relacionamento</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Você já parou para pensar nas marcas invisíveis da família..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Psicoterapia</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Psicoterapia online</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A psicoterapia online é uma alternativa segura para encontrar respiro..."</p>
                 </div>
                 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Psicoterapia</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Ser Psicólogo e a sessão de terapia</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Ser psicólogo é poder assimilar e compreender a dor do outro..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Relacionamentos</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Avó, pai e filho em relacionamento</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Você já parou para pensar nas marcas invisíveis da família..."</p>
                 </div>
                 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Relacionamentos</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Aprendendo a se comunicar de modo efetivo</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A comunicação é essencial para a qualidade das relações; a palavra liga..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Psicoterapia</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Ser Psicólogo e a sessão de terapia</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Ser psicólogo é poder assimilar e compreender a dor do outro..."</p>
                 </div>
                 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Feminilidade e a relação mãe-filha</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Mães e filhas, fazem parte da mesma e enorme rede de transmissão..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Relacionamentos</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Aprendendo a se comunicar de modo efetivo</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A comunicação é essencial para a qualidade das relações; a palavra liga..."</p>
                 </div>
                 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">"Crianças tirânicas": conversa sobre limites</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Estar bem posicionado em suas funções parentais torna-se um ato de amor..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Feminilidade e a relação mãe-filha</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Mães e filhas, fazem parte da mesma e enorme rede de transmissão..."</p>
+                </div>
+                
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">"Crianças tirânicas": conversa sobre limites</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Estar bem posicionado em suas funções parentais torna-se um ato de amor..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Adolescência</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Conceito de Adolescência</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Conhecer e identificar os diversos aspectos da adolescência é crucial..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Adolescência</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Conceito de Adolescência</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Conhecer e identificar os diversos aspectos da adolescência é crucial..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Saúde Emocional</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Ataque de pânico ou ataque de angústia?</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Identificar os sintomas e tratar a angústia aprendendo a ler o corpo..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Saúde Emocional</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Ataque de pânico ou ataque de angústia?</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Identificar os sintomas e tratar a angústia aprendendo a ler o corpo..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Saúde Emocional</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Compulsão, repetição e drogadição</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A psicanálise possibilita que a satisfação obtida pela via do excesso..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Saúde Emocional</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Compulsão, repetição e drogadição</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A psicanálise possibilita que a satisfação obtida pela via do excesso..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">O que é a adoção de um filho? Apoio</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A adoção é um contrato que liga pessoas para formar vínculos verdadeiros..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">O que é a adoção de um filho? Apoio</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A adoção é um contrato que liga pessoas para formar vínculos verdadeiros..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Religião e Sofrimento</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">O triunfo da religião: a verdade de Deus</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A religião pode apaziguar o sofrimento através de uma moral orientadora..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Religião e Sofrimento</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">O triunfo da religião: a verdade de Deus</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A religião pode apaziguar o sofrimento através de uma moral orientadora..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Agressividade das crianças e o limite dos pais</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A criança que não possui disciplina terá dificuldades em segurar a raiva..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Agressividade das crianças e o limite dos pais</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A criança que não possui disciplina terá dificuldades em segurar a raiva..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Entre a censura e a liberdade: o dilema dos pais</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Quando se fala em censura, somos levados a pensar na liberdade de criar..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Educação Parental</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Entre a censura e a liberdade: o dilema dos pais</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Quando se fala em censura, somos levados a pensar na liberdade de criar..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Relacionamentos</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Egoísmo, violência e estresse</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Empatia e o cultivo da gentileza fazem bem à saúde e promovem o cuidado..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-100 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Relacionamentos</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Egoísmo, violência e estresse</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"Empatia e o cultivo da gentileza fazem bem à saúde e promovem o cuidado..."</p>
                 </div>
 
-                <div class="group cursor-pointer flex flex-col gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-6">
-                    <span class="text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Arte e Psicanálise</span>
-                    <h3 class="serif text-2xl md:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Psicanálise e Arte: uma conversa</h3>
-                    <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A arte pode se aproximar da prática analítica? Freud utilizou a arte para..."</p>
+                <div class="group cursor-pointer flex flex-col gap-2 md:gap-3 reveal delay-200 border-t border-[#DFCDCD]/40 pt-4 md:pt-6">
+                    <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C]">Arte e Psicanálise</span>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors m-0 leading-snug">Psicanálise e Arte: uma conversa</h3>
+                    <p class="text-xs md:text-sm font-light text-[#7A7271] m-0 leading-relaxed italic">"A arte pode se aproximar da prática analítica? Freud utilizou a arte para..."</p>
                 </div>
 
             </div>
         </div>
 
         <!-- ================= CONTATO ================= -->
-        <div id="page-contato" class="page-content hidden pt-40 pb-20 px-6 md:px-12 max-w-[85rem] mx-auto bg-grid-pattern relative">
+        <div id="page-contato" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto bg-grid-pattern relative">
             <div class="absolute inset-0 bg-[#FAF8F7]/80 z-0"></div>
 
-            <div class="text-center mb-24 reveal relative z-10">
-                <span class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-4">O primeiro passo</span>
-                <h1 class="serif text-5xl md:text-6xl text-[#4A4443]">Vamos conversar</h1>
+            <div class="text-center mb-16 md:mb-24 reveal relative z-10">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">O primeiro passo</span>
+                <h1 class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443]">Vamos conversar</h1>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 relative z-10">
-                <div class="flex flex-col gap-10 reveal delay-100">
-                    <div>
-                        <h3 class="serif text-3xl mb-4 text-[#B57C7C]">Inicie sua jornada</h3>
-                        <p class="text-lg font-light text-[#7A7271] leading-relaxed max-w-md">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 relative z-10">
+                <div class="flex flex-col gap-8 md:gap-10 reveal delay-100">
+                    <div class="text-center lg:text-left">
+                        <h3 class="serif text-2xl md:text-3xl mb-3 md:mb-4 text-[#B57C7C]">Inicie sua jornada</h3>
+                        <p class="text-base md:text-lg font-light text-[#7A7271] leading-relaxed max-w-md mx-auto lg:mx-0">
                             O primeiro passo geralmente demanda coragem. Entre em contato para agendarmos uma sessão inicial online, onde entenderemos juntos se este é o espaço que você procura.
                         </p>
                     </div>
                     
-                    <div class="flex flex-col gap-8 mt-4">
-                        <a href="https://wa.me/5511998926658" target="_blank" class="flex items-center gap-6 group w-max">
-                            <div class="w-14 h-14 rounded-full bg-[#F0EAE8] flex items-center justify-center text-[#B57C7C] group-hover:bg-[#B57C7C] group-hover:text-[#FAF8F7] transition-colors duration-500 shadow-sm border border-[#DFCDCD]/30">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    <div class="flex flex-col gap-6 md:gap-8 mt-2 md:mt-4 items-center lg:items-start">
+                        <a href="https://wa.me/5511998926658" target="_blank" class="flex items-center gap-4 md:gap-6 group w-max">
+                            <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#F0EAE8] flex items-center justify-center text-[#B57C7C] group-hover:bg-[#B57C7C] group-hover:text-[#FAF8F7] transition-colors duration-500 shadow-sm border border-[#DFCDCD]/30">
+                                <svg width="20" height="20" md:width="24" md:height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                             </div>
                             <div>
-                                <span class="block text-[10px] uppercase tracking-[0.2em] text-[#B57C7C] mb-1">WhatsApp</span>
-                                <span class="text-xl font-light text-[#4A4443] group-hover:text-[#B57C7C] transition-colors">+55 11 99892-6658</span>
+                                <span class="block text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-[#B57C7C] mb-1">WhatsApp</span>
+                                <span class="text-lg md:text-xl font-light text-[#4A4443] group-hover:text-[#B57C7C] transition-colors">+55 11 99892-6658</span>
                             </div>
                         </a>
                     </div>
                 </div>
                 
-                <div class="bg-[#FAF8F7] p-10 md:p-12 rounded-sm border border-[#DFCDCD]/50 reveal delay-200 shadow-[0_10px_40px_rgba(223,205,205,0.15)] relative">
-                    <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#B57C7C]/40"></div>
+                <div class="bg-[#FAF8F7] p-6 md:p-10 lg:p-12 rounded-sm border border-[#DFCDCD]/50 reveal delay-200 shadow-[0_10px_40px_rgba(223,205,205,0.15)] relative">
+                    <div class="absolute top-0 left-0 w-3 h-3 md:w-4 md:h-4 border-t-2 border-l-2 border-[#B57C7C]/40"></div>
                     
-                    <h3 class="serif text-2xl text-[#4A4443] mb-8">Envie uma mensagem</h3>
-                    <form onsubmit="event.preventDefault();" class="flex flex-col gap-8">
-                        <input type="text" placeholder="Seu nome completo" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-[#4A4443] placeholder:text-[#7A7271]/60" />
-                        <input type="email" placeholder="Seu e-mail" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-[#4A4443] placeholder:text-[#7A7271]/60" />
-                        <input type="tel" placeholder="Seu telefone" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-[#4A4443] placeholder:text-[#7A7271]/60" />
-                        <textarea placeholder="Gostaria de falar brevemente sobre o que busca?" rows="3" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-[#4A4443] placeholder:text-[#7A7271]/60 resize-none"></textarea>
-                        <button type="submit" class="btn-primary w-full mt-4">
+                    <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-6 md:mb-8 text-center md:text-left">Envie uma mensagem</h3>
+                    <form onsubmit="event.preventDefault();" class="flex flex-col gap-6 md:gap-8">
+                        <input type="text" placeholder="Seu nome completo" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-2 md:pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-sm md:text-base text-[#4A4443] placeholder:text-[#7A7271]/60" />
+                        <input type="email" placeholder="Seu e-mail" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-2 md:pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-sm md:text-base text-[#4A4443] placeholder:text-[#7A7271]/60" />
+                        <input type="tel" placeholder="Seu telefone" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-2 md:pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-sm md:text-base text-[#4A4443] placeholder:text-[#7A7271]/60" />
+                        <textarea placeholder="Gostaria de falar brevemente sobre o que busca?" rows="3" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-2 md:pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-sm md:text-base text-[#4A4443] placeholder:text-[#7A7271]/60 resize-none"></textarea>
+                        <button type="submit" class="btn-primary w-full mt-2 md:mt-4">
                             Enviar solicitação
                         </button>
                     </form>
@@ -969,9 +1001,9 @@
             </div>
         </div>
 
-        <section class="py-24 bg-[#F0EAE8]/30 mt-auto border-t border-[#DFCDCD]/30">
-            <div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-8 px-6 reveal">
-                <h2 class="serif text-3xl md:text-4xl text-[#4A4443]">Deseja dar o primeiro passo?</h2>
+        <section class="py-20 md:py-24 bg-[#F0EAE8]/30 mt-auto border-t border-[#DFCDCD]/30">
+            <div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 md:gap-8 px-6 reveal">
+                <h2 class="serif text-2xl md:text-3xl lg:text-4xl text-[#4A4443]">Deseja dar o primeiro passo?</h2>
                 <button onclick="window.open('https://wa.me/5511998926658', '_blank')" class="btn-primary">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     Falar pelo WhatsApp
@@ -980,25 +1012,25 @@
         </section>
     </main>
 
-    <footer class="bg-[#F0EAE8] py-24 px-6 md:px-12 mt-0 relative overflow-hidden">
+    <footer class="bg-[#F0EAE8] py-16 md:py-24 px-6 md:px-12 mt-0 relative overflow-hidden">
         <div class="absolute top-10 left-0 w-full text-center pointer-events-none opacity-[0.03] select-none overflow-hidden">
             <span class="serif text-[15vw] leading-none whitespace-nowrap text-[#4A4443]">Mariana Martins</span>
         </div>
 
-        <div class="max-w-[85rem] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 relative z-10">
-            <div class="md:col-span-5 flex flex-col gap-8 items-center md:items-start text-center md:text-left pr-0 md:pr-12">
-                <h3 class="serif text-4xl text-[#4A4443]">Mariana Martins</h3>
-                <p class="text-base text-[#7A7271] font-light leading-relaxed">
+        <div class="max-w-[85rem] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 relative z-10">
+            <div class="md:col-span-5 flex flex-col gap-6 md:gap-8 items-center md:items-start text-center md:text-left pr-0 md:pr-12">
+                <h3 class="serif text-3xl md:text-4xl text-[#4A4443]">Mariana Martins</h3>
+                <p class="text-sm md:text-base text-[#7A7271] font-light leading-relaxed max-w-xs md:max-w-none">
                     Um dispositivo clínico de escuta ativa. Psicologia clínica e psicanálise online com foco no acolhimento profundo e no restabelecimento do desejo.
                 </p>
-                <div class="flex items-center gap-4 mt-2">
-                    <span class="text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] border border-[#B57C7C]/30 px-4 py-2 rounded-full bg-[#FAF8F7]/50">CRP 06/70269</span>
+                <div class="flex items-center gap-4 mt-1 md:mt-2">
+                    <span class="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-[#B57C7C] border border-[#B57C7C]/30 px-4 py-2 rounded-full bg-[#FAF8F7]/50">CRP 06/70269</span>
                 </div>
             </div>
             
-            <div class="md:col-span-3 flex flex-col gap-6 items-center md:items-start text-center md:text-left md:pl-12 border-t md:border-t-0 md:border-l border-[#DFCDCD]/50 pt-10 md:pt-0">
-                <h4 class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C]">Navegação</h4>
-                <div class="flex flex-col gap-4">
+            <div class="md:col-span-3 flex flex-col gap-4 md:gap-6 items-center md:items-start text-center md:text-left md:pl-12 border-t md:border-t-0 md:border-l border-[#DFCDCD]/50 pt-8 md:pt-0">
+                <h4 class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C]">Navegação</h4>
+                <div class="flex flex-col gap-3 md:gap-4">
                     <button onclick="navigate('home')" class="text-sm font-light text-[#7A7271] hover:text-[#B57C7C] transition-colors flex items-center gap-2 group justify-center md:justify-start"><span class="w-4 h-[1px] bg-[#DFCDCD] group-hover:bg-[#B57C7C] transition-colors hidden md:block"></span> Início</button>
                     <button onclick="navigate('como-ajudar')" class="text-sm font-light text-[#7A7271] hover:text-[#B57C7C] transition-colors flex items-center gap-2 group justify-center md:justify-start"><span class="w-4 h-[1px] bg-[#DFCDCD] group-hover:bg-[#B57C7C] transition-colors hidden md:block"></span> Como ajudo</button>
                     <button onclick="navigate('muito-prazer')" class="text-sm font-light text-[#7A7271] hover:text-[#B57C7C] transition-colors flex items-center gap-2 group justify-center md:justify-start"><span class="w-4 h-[1px] bg-[#DFCDCD] group-hover:bg-[#B57C7C] transition-colors hidden md:block"></span> A Profissional</button>
@@ -1006,21 +1038,21 @@
                 </div>
             </div>
 
-            <div class="md:col-span-4 flex flex-col gap-6 items-center md:items-start text-center md:text-left border-t md:border-t-0 md:border-l border-[#DFCDCD]/50 pt-10 md:pt-0 md:pl-12">
-                <h4 class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C]">Atendimento Digital</h4>
+            <div class="md:col-span-4 flex flex-col gap-4 md:gap-6 items-center md:items-start text-center md:text-left border-t md:border-t-0 md:border-l border-[#DFCDCD]/50 pt-8 md:pt-0 md:pl-12">
+                <h4 class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C]">Atendimento Digital</h4>
                 <p class="text-sm font-light text-[#7A7271] leading-relaxed max-w-xs">Sessões mediadas por tecnologia, permitindo acompanhamento contínuo para todo o Brasil e pacientes no exterior.</p>
                 
-                <div class="mt-4 flex flex-col gap-3">
-                    <a href="https://wa.me/5511998926658" target="_blank" class="text-base font-light text-[#4A4443] hover:text-[#B57C7C] transition-colors">+55 11 99892-6658</a>
+                <div class="mt-2 md:mt-4 flex flex-col gap-2 md:gap-3">
+                    <a href="https://wa.me/5511998926658" target="_blank" class="text-sm md:text-base font-light text-[#4A4443] hover:text-[#B57C7C] transition-colors">+55 11 99892-6658</a>
                 </div>
             </div>
         </div>
         
-        <div class="max-w-[85rem] mx-auto mt-24 pt-8 border-t border-[#DFCDCD]/50 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-            <div class="text-[10px] font-light text-[#7A7271] tracking-[0.2em] uppercase">
+        <div class="max-w-[85rem] mx-auto mt-16 md:mt-24 pt-6 md:pt-8 border-t border-[#DFCDCD]/50 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <div class="text-[9px] md:text-[10px] font-light text-[#7A7271] tracking-[0.2em] uppercase text-center">
                 © <span id="ano-atual"></span> Mariana Martins. Todos os direitos reservados.
             </div>
-            <div class="text-[10px] font-light text-[#7A7271] tracking-[0.2em] uppercase">
+            <div class="text-[9px] md:text-[10px] font-light text-[#7A7271] tracking-[0.2em] uppercase text-center">
                 Design de Alto Padrão
             </div>
         </div>
@@ -1063,23 +1095,46 @@
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 nav.classList.add('bg-[#FAF8F7]/95', 'backdrop-blur-md', 'shadow-sm', 'py-4');
-                nav.classList.remove('bg-transparent', 'py-6');
+                nav.classList.remove('bg-transparent', 'py-4', 'md:py-6');
             } else {
-                nav.classList.add('bg-transparent', 'py-6');
+                nav.classList.add('bg-transparent', 'py-4', 'md:py-6');
                 nav.classList.remove('bg-[#FAF8F7]/95', 'backdrop-blur-md', 'shadow-sm', 'py-4');
             }
         });
 
         function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('opacity-0')) {
-                menu.classList.remove('opacity-0', 'invisible');
-                menu.classList.add('opacity-100', 'visible');
+            const wrapper = document.getElementById('mobile-menu-wrapper');
+            const curtainLeft = document.getElementById('curtain-left');
+            const curtainRight = document.getElementById('curtain-right');
+            const closeBtn = document.getElementById('close-btn');
+            const menuLinks = document.getElementById('menu-links');
+
+            if (wrapper.classList.contains('pointer-events-none')) {
+                // Abrir Cortinas
+                wrapper.classList.remove('pointer-events-none');
                 document.body.style.overflow = 'hidden';
+                
+                curtainLeft.classList.remove('-translate-x-full');
+                curtainRight.classList.remove('translate-x-full');
+
+                setTimeout(() => {
+                    closeBtn.classList.remove('opacity-0', 'translate-y-4');
+                    menuLinks.classList.remove('opacity-0', 'translate-y-8');
+                }, 500);
             } else {
-                menu.classList.add('opacity-0', 'invisible');
-                menu.classList.remove('opacity-100', 'visible');
-                document.body.style.overflow = '';
+                // Fechar Cortinas
+                closeBtn.classList.add('opacity-0', 'translate-y-4');
+                menuLinks.classList.add('opacity-0', 'translate-y-8');
+
+                setTimeout(() => {
+                    curtainLeft.classList.add('-translate-x-full');
+                    curtainRight.classList.add('translate-x-full');
+                }, 400);
+
+                setTimeout(() => {
+                    wrapper.classList.add('pointer-events-none');
+                    document.body.style.overflow = '';
+                }, 1200);
             }
         }
 
@@ -1087,8 +1142,8 @@
             const wrapper = document.getElementById('main-wrapper');
             wrapper.style.opacity = '0';
             
-            const menu = document.getElementById('mobile-menu');
-            if (!menu.classList.contains('opacity-0')) {
+            const menuWrapper = document.getElementById('mobile-menu-wrapper');
+            if (menuWrapper && !menuWrapper.classList.contains('pointer-events-none')) {
                 toggleMenu();
             }
 
