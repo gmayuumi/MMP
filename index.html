@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariana Martins | Psicologia e Psicanálise</title>
-    
-   
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B57C7C' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='11'/%3E%3Cpath d='M7 16V8l5 5 5-5v8'/%3E%3C/svg%3E" type="image/svg+xml">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -147,7 +144,6 @@
             transition: opacity 0.6s ease-in-out;
         }
 
-        /* WhatsApp Flutuante Responsivo */
         .wa-float {
             position: fixed;
             width: 50px;
@@ -204,7 +200,6 @@
         ::-webkit-scrollbar-thumb { background: var(--rose-light); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--rose); }
 
-        /* Formatações dinâmicas para o conteúdo do artigo */
         .artigo-conteudo p { margin-bottom: 1.5rem; font-weight: 300; line-height: 1.8; color: #7A7271; }
         .artigo-conteudo h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: #4A4443; margin-top: 2.5rem; margin-bottom: 1rem; }
         .artigo-conteudo ul, .artigo-conteudo ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #7A7271; font-weight: 300; }
@@ -256,7 +251,6 @@
         </div>
     </nav>
 
-    <!-- Menu Curtains Mobile -->
     <div id="mobile-menu-wrapper" class="fixed inset-0 z-[100] pointer-events-none flex">
         <div id="curtain-left" class="w-1/2 h-full bg-[#FAF8F7] transform -translate-x-full transition-transform duration-[800ms] ease-[cubic-bezier(0.77,0,0.175,1)]"></div>
         <div id="curtain-right" class="w-1/2 h-full bg-[#FAF8F7] transform translate-x-full transition-transform duration-[800ms] ease-[cubic-bezier(0.77,0,0.175,1)]"></div>
@@ -279,7 +273,6 @@
 
     <main class="flex-grow flex flex-col" id="main-wrapper">
         
-        <!-- ================= HOME ================= -->
         <div id="page-home" class="page-content block">
             
             <section class="relative min-h-screen flex items-center pt-28 pb-16 md:pt-32 md:pb-20 px-6 md:px-12 max-w-[90rem] mx-auto overflow-hidden">
@@ -302,7 +295,7 @@
                         <div class="reveal delay-100 pl-0 md:pl-12">
                             <div class="border-l-2 border-[#B57C7C]/40 pl-4 md:pl-6">
                                 <p class="text-base sm:text-lg md:text-xl font-medium text-[#4A4443] mb-2 leading-relaxed">
-                                    Atendimento online especializado para adultos, adolescentes e crianças.
+                                    Atendimento online especializado para adultos e adolescentes.
                                 </p>
                                 <p class="text-base sm:text-lg md:text-xl font-light text-[#7A7271] max-w-md leading-relaxed">
                                     Há momentos em que o peso interno pede uma pausa. Ofereço uma escuta atenta, sem julgamentos, para que você possa desembalar suas angústias no seu próprio tempo, de onde estiver.
@@ -446,8 +439,6 @@
             </section>
 
             <section class="py-20 md:py-32 px-6 bg-[#B57C7C] text-[#FAF8F7] relative">
-                <div class="absolute top-0 bottom-0 left-[10%] w-px bg-white/10 hidden md:block"></div>
-
                 <div class="max-w-[85rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
                     <div class="flex flex-col gap-6 md:gap-8 reveal">
                         <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#FAF8F7]/70">O Divã Contemporâneo</span>
@@ -582,7 +573,6 @@
             </section>
         </div>
 
-        <!-- ================= COMO AJUDAR ================= -->
         <div id="page-como-ajudar" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto bg-grid-pattern relative">
             <div class="absolute inset-0 bg-[#FAF8F7]/80 z-0"></div>
 
@@ -736,9 +726,19 @@
                 </div>
 
             </div>
+
+            <div class="mt-20 md:mt-32 pt-16 border-t border-[#DFCDCD]/50 text-center reveal">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Aprofunde-se</span>
+                <h2 class="serif text-3xl md:text-4xl text-[#4A4443] mb-6">Conheça meus artigos e reflexões</h2>
+                <p class="font-light text-[#7A7271] text-sm md:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Escrevo regularmente sobre as dinâmicas do sofrimento emocional, a complexidade dos relacionamentos e os desafios da parentalidade. Convido você a conhecer um pouco mais do meu trabalho através da escrita.
+                </p>
+                <button onclick="navigate('artigos')" class="text-[#B57C7C] border-b border-[#B57C7C] pb-1 text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-[#4A4443] hover:border-[#4A4443] transition-colors">
+                    Acessar o Journal Clínico
+                </button>
+            </div>
         </div>
 
-        <!-- ================= MUITO PRAZER ================= -->
         <div id="page-muito-prazer" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto relative">
             <div class="text-center mb-16 md:mb-24 reveal relative z-10">
                 <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">A pessoa por trás da escuta</span>
@@ -788,7 +788,7 @@
                 <div class="lg:col-span-6 flex flex-col gap-5 md:gap-6 font-light text-base md:text-lg text-[#7A7271] leading-relaxed reveal delay-100 order-2 lg:order-1">
                     <p>Minha formação inclui treinamentos no <strong>Beck Institute of Cognitive Behavior Therapy</strong> e em <strong>Dialectical Behavior Therapy</strong>, além de certificação em Educação Parental pela Positive Discipline Association, o que amplia meu olhar clínico para diferentes contextos do desenvolvimento humano e das relações familiares.</p>
                     
-                    <p>Ao longo da minha trajetória, atuei em contextos institucionais e hospitalares, no atendimento a famílias, crianças, adolescentes e adultos, incluindo experiência profunda em clínica de internação psiquiátrica.</p>
+                    <p>Ao longo da minha trajetória, atuei em contextos institucionais e hospitalares, no atendimento a famílias, adolescentes e adultos, incluindo experiência profunda em clínica de internação psiquiátrica.</p>
                     
                     <p>Atuei em Varas de Família e, atualmente, sou perita na Vara da Infância e Juventude do Tribunal de Justiça de São Paulo, com formação em Entrevista Forense pelo Conselho Nacional de Justiça.</p>
                 </div>
@@ -820,7 +820,6 @@
             </div>
         </div>
 
-        <!-- ================= FORMAÇÃO ================= -->
         <div id="page-formacao" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-4xl mx-auto">
             <div class="text-center mb-16 md:mb-24 reveal">
                 <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Rigor teórico e prático</span>
@@ -846,7 +845,7 @@
 
                 <div class="relative reveal">
                     <div class="absolute -left-[30px] md:-left-[46px] top-1.5 w-3 h-3 rounded-full bg-[#F0EAE8] ring-4 ring-[#FAF8F7]"></div>
-                    <span class="text-xs md:text-sm font-serif italic text-[#B57C7C]">3 anos em Saúde Mental</span>
+                    <span class="text-xs md:text-sm font-serif italic text-[#B57C7C]">Desde 2018</span>
                     <h3 class="serif text-xl md:text-2xl lg:text-3xl mt-2 md:mt-3 mb-3 md:mb-4 text-[#4A4443]">Psicologia Jurídica e Institucional</h3>
                     <p class="font-light text-[#7A7271] leading-relaxed text-sm md:text-base">Extensa atuação forense: Perita na Vara da Infância e Juventude (TJSP), atuação em Varas de Família (TJSP) e treinamento em Entrevista Forense pelo Conselho Nacional de Justiça. No contexto institucional, dedicou três anos ao atendimento de famílias e pacientes internados com diversos diagnósticos na Clínica de Repouso e Internação Parque Julieta, além de atuar como monitora no Projeto TECER (USP/IP).</p>
                 </div>
@@ -860,7 +859,6 @@
             </div>
         </div>
 
-        <!-- ================= ABORDAGEM ================= -->
         <div id="page-abordagem" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto">
             <div class="text-center mb-16 md:mb-24 reveal">
                 <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Teoria · Abordagem · Modelo Clínico</span>
@@ -889,7 +887,6 @@
             </div>
         </div>
 
-        <!-- ================= ARTIGOS (GRID) ================= -->
         <div id="page-artigos" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto">
             <div class="text-center mb-20 md:mb-32 reveal">
                 <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">Escritos para a alma</span>
@@ -899,13 +896,12 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 md:gap-x-16 gap-y-16 md:gap-y-24">
                 
-                <!-- Item 1 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal" onclick="abrirArtigo('avo-pai-filho')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Relacionamentos</span>
                         <span class="text-[11px] font-serif italic text-[#7A7271]">1 min</span>
                     </div>
-                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors leading-snug mb-3">Avó, pai e filho em relacionamento</h3>
+                    <h3 class="serif text-xl md:text-2xl lg:text-3xl text-[#4A4443] group-hover:text-[#B57C7C] transition-colors leading-snug mb-3">Avô, pai e filho em relacionamento</h3>
                     <p class="text-sm font-light text-[#7A7271] m-0 leading-relaxed">Você já parou para pensar como os relacionamentos são parte fundamental da nossa vida? Ter relações saudáveis contribui para a saúde mental...</p>
                     <div class="mt-6 flex items-center gap-2 text-[#B57C7C] opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-500">
                         <span class="text-[9px] uppercase tracking-[0.2em]">Ler artigo</span>
@@ -913,7 +909,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 2 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-100" onclick="abrirArtigo('burnout')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Saúde Emocional</span>
@@ -927,7 +922,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 3 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-200" onclick="abrirArtigo('ansiedade')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Saúde Emocional</span>
@@ -941,7 +935,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 4 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal" onclick="abrirArtigo('psicoterapia-online')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Psicoterapia</span>
@@ -955,7 +948,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 5 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-100" onclick="abrirArtigo('cultivar-relacionamento')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Relacionamentos</span>
@@ -969,7 +961,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 6 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-200" onclick="abrirArtigo('ser-psicologo')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Psicoterapia</span>
@@ -983,7 +974,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 7 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal" onclick="abrirArtigo('comunicacao-efetiva')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Relacionamentos</span>
@@ -997,7 +987,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 8 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-100" onclick="abrirArtigo('feminilidade-mae-filha')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Educação Parental</span>
@@ -1011,7 +1000,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 9 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-200" onclick="abrirArtigo('psicanalise-arte')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Arte e Psicanálise</span>
@@ -1025,7 +1013,6 @@
                     </div>
                 </div>
 
-                <!-- Item 10 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal" onclick="abrirArtigo('adolescencia')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Adolescência</span>
@@ -1039,7 +1026,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 11 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-100" onclick="abrirArtigo('criancas-tiranicas')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Educação Parental</span>
@@ -1053,7 +1039,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 12 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-200" onclick="abrirArtigo('compulsao')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Saúde Emocional</span>
@@ -1067,7 +1052,6 @@
                     </div>
                 </div>
                 
-                <!-- Item 13 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal" onclick="abrirArtigo('triunfo-religiao')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Religião e Sofrimento</span>
@@ -1081,7 +1065,6 @@
                     </div>
                 </div>
 
-                <!-- Item 14 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-100" onclick="abrirArtigo('censura-liberdade')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Educação Parental</span>
@@ -1095,7 +1078,6 @@
                     </div>
                 </div>
 
-                <!-- Item 15 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-200" onclick="abrirArtigo('adocao')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Educação Parental</span>
@@ -1109,7 +1091,6 @@
                     </div>
                 </div>
 
-                <!-- Item 16 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal" onclick="abrirArtigo('agressividade')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Educação Parental</span>
@@ -1123,7 +1104,6 @@
                     </div>
                 </div>
 
-                <!-- Item 17 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-100" onclick="abrirArtigo('ataque-panico')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Saúde Emocional</span>
@@ -1137,7 +1117,6 @@
                     </div>
                 </div>
 
-                <!-- Item 18 -->
                 <div class="group cursor-pointer flex flex-col h-full bg-transparent border-t border-[#DFCDCD] hover:border-[#B57C7C] pt-6 transition-all duration-500 reveal delay-200" onclick="abrirArtigo('egoismo-violencia')">
                     <div class="flex justify-between items-center mb-4 md:mb-5">
                         <span class="text-[8px] md:text-[9px] tracking-[0.2em] uppercase text-[#B57C7C] font-semibold">Relacionamentos</span>
@@ -1154,7 +1133,6 @@
             </div>
         </div>
 
-      
         <div id="page-artigo-leitura" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-32 px-6 md:px-12 max-w-4xl mx-auto">
             <button onclick="navigate('artigos')" class="text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-[#B57C7C] hover:text-[#4A4443] transition-colors flex items-center gap-2 mb-12 md:mb-20">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
@@ -1163,19 +1141,32 @@
 
             <div id="artigo-header" class="mb-16 md:mb-24 reveal text-center max-w-3xl mx-auto">
                 <div class="flex items-center justify-center gap-4 mb-8">
-                    <span id="artigo-cat" class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] font-bold">Categoria</span>
+                    <span id="artigo-cat" class="text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] font-bold"></span>
                     <span class="w-1 h-1 rounded-full bg-[#DFCDCD]"></span>
-                    <span id="artigo-time" class="text-[11px] font-serif italic text-[#7A7271]">X min de leitura</span>
+                    <span id="artigo-time" class="text-[11px] font-serif italic text-[#7A7271]"></span>
                 </div>
-                <h1 id="artigo-title" class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443] leading-tight mb-12">Título do Artigo</h1>
+                <h1 id="artigo-title" class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443] leading-tight mb-12"></h1>
                 <div class="w-24 h-[1px] bg-[#B57C7C]/40 mx-auto"></div>
             </div>
 
-            <div id="artigo-content" class="artigo-conteudo max-w-3xl mx-auto reveal delay-100">
-                <!-- O conteúdo do artigo será injetado aqui via JavaScript -->
-            </div>
+            <div id="artigo-content" class="artigo-conteudo max-w-3xl mx-auto reveal delay-100"></div>
 
             <div class="max-w-3xl mx-auto mt-24 pt-16 border-t border-[#DFCDCD]/50 flex flex-col items-center gap-6 reveal text-center">
+                <h3 class="serif text-3xl text-[#4A4443]">Fez sentido para você?</h3>
+                <p class="font-light text-[#7A7271] text-lg max-w-lg mb-4">Se este texto ressoou com o seu momento, talvez seja a hora de darmos o primeiro passo na sua jornada.</p>
+                <button onclick="window.open('https://wa.me/5511998926658', '_blank')" class="btn-primary">
+                    Agendar Sessão Online
+                </button>
+            </div>
+        </div>
+
+        <div id="page-contato" class="page-content hidden pt-32 md:pt-40 pb-16 md:pb-20 px-6 md:px-12 max-w-[85rem] mx-auto bg-grid-pattern relative">
+            <div class="absolute inset-0 bg-[#FAF8F7]/80 z-0"></div>
+
+            <div class="text-center mb-16 md:mb-24 reveal relative z-10">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B57C7C] block mb-3 md:mb-4">O primeiro passo</span>
+                <h1 class="serif text-4xl md:text-5xl lg:text-6xl text-[#4A4443]">Vamos conversar</h1>
+            </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 relative z-10">
                 <div class="flex flex-col gap-8 md:gap-10 reveal delay-100">
@@ -1199,25 +1190,27 @@
                     </div>
                 </div>
                 
-                <div class="bg-[#FAF8F7] p-6 md:p-10 lg:p-12 rounded-sm border border-[#DFCDCD]/50 reveal delay-200 shadow-[0_10px_40px_rgba(223,205,205,0.15)] relative">
+                <div class="bg-[#FAF8F7] p-6 md:p-10 lg:p-12 rounded-sm border border-[#DFCDCD]/50 reveal delay-200 shadow-[0_10px_40px_rgba(223,205,205,0.15)] relative flex flex-col justify-center items-center text-center">
                     <div class="absolute top-0 left-0 w-3 h-3 md:w-4 md:h-4 border-t-2 border-l-2 border-[#B57C7C]/40"></div>
+                    <div class="absolute bottom-0 right-0 w-3 h-3 md:w-4 md:h-4 border-b-2 border-r-2 border-[#B57C7C]/40"></div>
                     
-                    <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-6 md:mb-8 text-center md:text-left">Envie uma mensagem</h3>
-                    <form onsubmit="event.preventDefault();" class="flex flex-col gap-6 md:gap-8">
-                        <input type="text" placeholder="Seu nome completo" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-2 md:pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-sm md:text-base text-[#4A4443] placeholder:text-[#7A7271]/60" />
-                        <input type="email" placeholder="Seu e-mail" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-2 md:pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-sm md:text-base text-[#4A4443] placeholder:text-[#7A7271]/60" />
-                        <input type="tel" placeholder="Seu telefone" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-2 md:pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-sm md:text-base text-[#4A4443] placeholder:text-[#7A7271]/60" />
-                        <textarea placeholder="Gostaria de falar brevemente sobre o que busca?" rows="3" class="w-full bg-transparent border-b border-[#B57C7C]/30 pb-2 md:pb-3 focus:outline-none focus:border-[#B57C7C] transition-colors font-light text-sm md:text-base text-[#4A4443] placeholder:text-[#7A7271]/60 resize-none"></textarea>
-                        <button type="submit" class="btn-primary w-full mt-2 md:mt-4">
-                            Enviar solicitação
-                        </button>
-                    </form>
+                    <div class="w-16 h-16 rounded-full bg-[#F0EAE8] flex items-center justify-center text-[#B57C7C] mb-6 md:mb-8">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
+                    
+                    <h3 class="serif text-xl md:text-2xl text-[#4A4443] mb-4">Agende via WhatsApp</h3>
+                    <p class="font-light text-sm md:text-base text-[#7A7271] mb-8 max-w-sm leading-relaxed">
+                        Para maior agilidade e privacidade, todos os agendamentos, valores e dúvidas são tratados diretamente pelo meu WhatsApp pessoal.
+                    </p>
+                    <button onclick="window.open('https://wa.me/5511998926658', '_blank')" class="btn-primary w-full max-w-xs text-sm md:text-base py-4">
+                        Iniciar Conversa
+                    </button>
                 </div>
             </div>
         </div>
 
         <section class="py-20 md:py-24 bg-[#F0EAE8]/30 mt-auto border-t border-[#DFCDCD]/30">
-            <div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 md:gap-8 px-6 reveal">
+            <div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-6 md:gap-8 px-6">
                 <h2 class="serif text-2xl md:text-3xl lg:text-4xl text-[#4A4443]">Deseja dar o primeiro passo?</h2>
                 <button onclick="window.open('https://wa.me/5511998926658', '_blank')" class="btn-primary">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1300,10 +1293,48 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             initObservers();
-            setTimeout(() => {
-                const homeElements = document.querySelectorAll('#page-home .reveal');
-                homeElements.forEach(el => el.classList.add('active'));
-            }, 100);
+            
+            const hash = window.location.hash.replace('#', '');
+            if (hash.startsWith('artigo-')) {
+                const id = hash.replace('artigo-', '');
+                if(artigosBD[id]) {
+                    abrirArtigo(id, false);
+                    history.replaceState({ pageId: 'artigo-leitura', artigoId: id }, '', '#' + hash);
+                } else {
+                    navigate('home', false);
+                    history.replaceState({ pageId: 'home' }, '', '#home');
+                }
+            } else if (hash && document.getElementById('page-' + hash)) {
+                navigate(hash, false);
+                history.replaceState({ pageId: hash }, '', '#' + hash);
+            } else {
+                history.replaceState({ pageId: 'home' }, '', '#home');
+                setTimeout(() => {
+                    const homeElements = document.querySelectorAll('#page-home .reveal');
+                    homeElements.forEach(el => el.classList.add('active'));
+                }, 100);
+            }
+        });
+
+        window.addEventListener('popstate', function(event) {
+            const state = event.state;
+            if (state) {
+                if (state.pageId === 'artigo-leitura' && state.artigoId) {
+                    abrirArtigo(state.artigoId, false);
+                } else if (state.pageId) {
+                    navigate(state.pageId, false);
+                }
+            } else {
+                const hash = window.location.hash.replace('#', '');
+                if (hash.startsWith('artigo-')) {
+                    const id = hash.replace('artigo-', '');
+                    abrirArtigo(id, false);
+                } else if (hash) {
+                    navigate(hash, false);
+                } else {
+                    navigate('home', false);
+                }
+            }
         });
 
         window.addEventListener('scroll', function() {
@@ -1351,7 +1382,11 @@
             }
         }
 
-        function navigate(pageId) {
+        function navigate(pageId, addToHistory = true) {
+            if (addToHistory) {
+                history.pushState({ pageId: pageId }, '', '#' + pageId);
+            }
+
             const wrapper = document.getElementById('main-wrapper');
             wrapper.style.opacity = '0';
             
@@ -1392,10 +1427,9 @@
             }, 400); 
         }
 
-        // Banco de Dados de Artigos
         const artigosBD = {
             'avo-pai-filho': {
-                cat: 'Relacionamentos', time: '1 min', title: 'Avó, pai e filho em relacionamento',
+                cat: 'Relacionamentos', time: '1 min', title: 'Avô, pai e filho em relacionamento',
                 content: `
                     <p>Você já parou para pensar como os relacionamentos são parte fundamental da nossa vida? Ter relações saudáveis contribui para a saúde mental, ao passo que relacionamentos “tóxicos”, podem afetar sobremaneira o humor, pensamentos, finanças, saúde do corpo, influenciar opiniões e afetar a visão de futuro.</p>
                     <p>Na pesquisa de Harvard Study of Adult Development, que data de 1938 e que incluiu 268 estudantes, dos quais, atualmente, apenas 19 ainda estão vivos e com 90 anos de idade, revelou que conexões sociais sólidas reduzem o estresse e doenças físicas/mentais, enquanto o isolamento é prejudicial. Relacionamentos calorosos e saudáveis são o maior preditor de felicidade e longevidade, superando a genética ou a riqueza.</p>
@@ -1439,7 +1473,7 @@
                 content: `
                     <p>A psicoterapia online é uma modalidade de atendimento psicológico que pode ser uma alternativa para pacientes que não querem se deslocar até uma clínica e para aqueles que estão em locais distantes.</p>
                     <p>Essa modalidade oferece vantagens, como a flexibilidade de horários, reduz o desgaste do deslocamento e diminui as faltas.</p>
-                    <p>No Brasil, a psicoterapia online é regulamentada pela Resolução 11/2018 do Conselho Federal de Psicologia (CFP). O atendimento online pode ser realizado com crianças, adolescentes e adultos.</p>
+                    <p>No Brasil, a psicoterapia online é regulamentada pela Resolução 11/2018 do Conselho Federal de Psicologia (CFP). O atendimento online pode ser realizado com adolescentes e adultos.</p>
                     <p>É recomendável realizar o atendimento em local silencioso e com boa conexão de internet, além de ser vetado o registro das imagens e áudios das sessões a fim de zelar pelo sigilo. Dessa forma se garante a confiança necessária para o vínculo e o bom andamento do trabalho terapêutico.</p>
                     
                     <h3>Para realizar a psicoterapia online é simples. Você vai precisar:</h3>
@@ -1800,21 +1834,22 @@
             }
         };
 
-        function abrirArtigo(id) {
+        function abrirArtigo(id, addToHistory = true) {
             const artigo = artigosBD[id];
             if (!artigo) return;
 
-           
+            if (addToHistory) {
+                history.pushState({ pageId: 'artigo-leitura', artigoId: id }, '', '#artigo-' + id);
+            }
+
             document.getElementById('artigo-cat').textContent = artigo.cat;
             document.getElementById('artigo-time').textContent = artigo.time + " de leitura";
             document.getElementById('artigo-title').textContent = artigo.title;
             
             document.getElementById('artigo-content').innerHTML = artigo.content;
 
-          
-            navigate('artigo-leitura');
+            navigate('artigo-leitura', false);
             
-          
             setTimeout(() => {
                 const elementos = document.querySelectorAll('#page-artigo-leitura .reveal');
                 elementos.forEach(el => {
